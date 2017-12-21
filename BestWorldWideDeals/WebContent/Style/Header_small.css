@@ -1,0 +1,35 @@
+@CHARSET "ISO-8859-1";
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width:319px) {
+#header-wrapper{
+   	height: 2.5em;
+}	
+#logo-div {
+	background-size: 6em;
+}	
+	
+}
+
+@media screen and (max-width:480px) and (min-width:320px) {
+#header-wrapper{
+   	height: 2.8em;
+}	
+#logo-div {
+	background-size: 6.9em;
+}	
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+#header-wrapper{
+  	height: 3.5em;
+}	
+
+#logo-div {
+	background-size: 8em;
+}	
+}
