@@ -65,7 +65,9 @@ function toggle_cur_menu(){
     }
 }
 
-
+function small_menu_view_switch(elem){
+	elem.classList.toggle("change");
+}
 
 
 

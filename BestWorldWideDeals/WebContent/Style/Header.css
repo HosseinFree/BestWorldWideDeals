@@ -29,6 +29,24 @@ html, body {
 	width: 54em;
 }
 
+/*########################################### STARTING SMALL MENU STYLE ##################################################*/
+
+#small_menu {
+    display: inline-block;
+    cursor: pointer;
+    float: right;
+}
+
+.bar1, .bar2, .bar3 {
+    background-color: #f49000;
+    transition: 0.3s;
+}
+
+
+
+
+/*########################################### STARTING LARGE MENU STYLE ##################################################*/
+
 #large-menu{
 	position: relative;
 	float: right;
@@ -318,6 +336,10 @@ html, body {
 	margin-left: 85px;
 }
 
+#currency_menu{
+    display:none;	
+}
+
 #currency_menu ul{
 	width:11.5em;
 	padding:0;
@@ -377,6 +399,29 @@ html, body {
 	margin-top: -3.5em;
 }
 
+#small_menu {
+    padding-top: .95em;
+    padding-right: 1em;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 20px;
+    height: 3px;
+    margin: 4px 0;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-4px, -4px);
+    transform: rotate(45deg) translate(-4px, -4px);
+}
+
 #large-menu{
 	display: none;
 }
@@ -396,6 +441,31 @@ html, body {
 	margin-top: -3.8em;
 }
 
+#small_menu {
+    padding-top: .85em;
+    padding-right: 1em;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 4px;
+    margin: 5px 0;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-7px, 6px);
+    transform: rotate(-45deg) translate(-7px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -6px);
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+
+
 #large-menu{
 	display: none;
 }
@@ -414,6 +484,31 @@ html, body {
 #menu{
 	margin-top: -4.7em;
 }
+
+#small_menu {
+    padding-top: 1.1em;
+    padding-right: 1.1em;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    margin: 6px 0;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+
 
 #large-menu{
 	display: none;
@@ -436,9 +531,17 @@ html, body {
 	margin-top: -5.5em;
 }
 
+#small_menu{
+ display: none;	
+}
+
 	
 }
 
 @media screen and (min-width: 1370px) {
+
+#small_menu{
+ display: none;	
+}
 
 }

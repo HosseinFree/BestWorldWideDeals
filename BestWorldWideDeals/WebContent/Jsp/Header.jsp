@@ -19,6 +19,15 @@
    <div id="logo-div">
    </div>
    <div id="menu">
+   
+     <div id="small_menu" class="small_menu_norm" onclick="small_menu_view_switch(this)">
+         <div class="bar1"></div>
+         <div class="bar2"></div>
+         <div class="bar3"></div>
+     </div>
+     
+     
+     
      <div id="large-menu">
        <ul>
          <li>
