@@ -22,18 +22,36 @@
      <div id="large-menu">
        <ul>
          <li>
-            <div id="currency_div">
-               CAD<i class="arrow_down"></i>
+            <div id="currency_div" onclick="toggle_cur_menu();">
+               CAD<i id="cur_arrow" class="arrow_down"></i>
             </div>
          </li>
+         <div id="currency_menu" class="cur_callout cur_border_callout" ><b class="cur_border_notch cur_notch"></b><b class="cur_notch"></b>
+           <ul>
+              <li class="cur_men_items"><div>CAD - <span>Canadian Dollar</span></div></li><br/>
+              <li class="cur_men_items"><div>USD - <span>US Dollar</span></div></li><br/>
+              <li class="cur_men_items"><div>EUR - <span>Euro</span></div></li><br/>
+              <li class="cur_men_items"><div>AUD - <span>Australian Dollar</span></div></li><br/>
+              <li class="cur_men_items"><div>GBP - <span>British Pound</span></div></li><br/>
+              <li><div>CNY - <span>Chinese Yuan</span></div></li>             
+            </ul>
+         </div>
          <li>
-            <div id="language_div">
-               EN<i class="arrow_down"></i>
+            <div id="language_div" onclick="toggle_lan_menu();">
+               EN<i id="lan_arrow" class="arrow_down"></i>
             </div>
          </li>
+         <div id="language_menu" class="lan_callout lan_border_callout" ><b class="lan_border_notch lan_notch"></b><b class="lan_notch"></b>
+           <ul>
+              <li class="lan_men_items"><div><span>EN</span> <img src="${pageContext.request.contextPath}/Images/Header/EN_img.png"></div></li><br/>
+              <li class="lan_men_items"><div>FR <img src="${pageContext.request.contextPath}/Images/Header/FR_img.png"></div></li><br/>
+              <li class="lan_men_items"><div>ES <img src="${pageContext.request.contextPath}/Images/Header/ES_img.png"></div></li><br/>
+              <li><div>ZH <img src="${pageContext.request.contextPath}/Images/Header/ZH_img.png"></div></li>             
+            </ul>
+         </div>
          <li >
             <div id="account_div" onclick="toggle_acc_menu();">
-               My Account<i class="arrow_down"></i>
+               My Account<i id="acc_arrow" class="arrow_down"></i>
             </div> 
          </li>
          <div id="account_menu" class="callout border_callout" ><b class="border_notch notch"></b><b class="notch"></b>
