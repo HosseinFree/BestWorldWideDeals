@@ -176,7 +176,7 @@ html, body {
 }
 
 
-#large-menu ul li:hover>div i{
+#large-menu ul li div:hover ~ .arrow_down{
 	border: solid #ffffff;
 	border-width: 0 3px 3px 0;
     display: inline-block;
@@ -195,22 +195,38 @@ html, body {
 }
 
 #currency_div{
-	width: 4em;	
+	/*width: 4em;*/
+	margin-left: 0;
+	width: auto;	
 	cursor: pointer;
 }
 
 #language_div{
-	width: 4em;	
+	/*width: 4em;*/
+	margin-left: 2em;
+	width: auto;	
 	cursor: pointer;
 }
 
 #account_div{
-	width: 8.5em;
+	/*width: 8.5em;*/
+	margin-left: 2em;
+	width: auto;
 	cursor: pointer;
 }
 
 .arrow_down {
 	margin-left:.4em;
+	border: solid #f49000;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.small_arrow_down {
+	margin-left:0;
 	border: solid #f49000;
     border-width: 0 3px 3px 0;
     display: inline-block;
@@ -322,11 +338,10 @@ html, body {
 }
 
 /*################################## Language Menu ###############################################*/
-
 .lan_callout {
 	position: absolute;
 	width: auto;
-	margin-left: 3.2em;
+	margin-left: 3.3em;
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
@@ -417,7 +432,7 @@ html, body {
 .cur_callout {
 	position: absolute;
 	width: auto;
-	margin-left: -4.5em;
+	margin-left: -4.9em;
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;

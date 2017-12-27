@@ -9,6 +9,11 @@ var is_small_menu_open = false;
 var is_small_account_menu_open = false;
 var is_small_language_menu_open = false;
 var is_small_currency_menu_open = false;
+var language_val = 'EN';
+var currency_val = 'CAD';
+
+
+
 
 document.onclick = function(elem) {
 	if (!(  elem.target.id == "account_menu" || elem.target.id == "account_div" || elem.target.id == "acc_arrow") ){
@@ -158,3 +163,13 @@ function toggle_small_lan_menu(){
 }
 
 
+function set_value(element,value){
+	if (element === 'currency')
+		currency_val = value;
+	
+	if (element === 'language')
+		language_val = value;
+	
+	$('#'+element+'_div').text(value);
+	$('#small_'+element+'_val').text(value);
+}
