@@ -19,18 +19,15 @@
    <div id="logo-div">
    </div>
    <div id="menu">
-   
-     <div id="small_menu" class="small_menu_norm" onclick="small_menu_view_switch(this)">
+     <div id="small_menu_icon" class="small_menu_norm" onclick="small_menu_view_switch(this);toggle_small_menu()">
          <div class="bar1"></div>
          <div class="bar2"></div>
          <div class="bar3"></div>
      </div>
      
-     
-     
      <div id="large-menu">
        <ul>
-         <li>
+         <li class="large_menu_items">
             <div id="currency_div" onclick="toggle_cur_menu();">
                CAD<i id="cur_arrow" class="arrow_down"></i>
             </div>
@@ -45,7 +42,7 @@
               <li><div>CNY - <span>Chinese Yuan</span></div></li>             
             </ul>
          </div>
-         <li>
+         <li class="large_menu_items">
             <div id="language_div" onclick="toggle_lan_menu();">
                EN<i id="lan_arrow" class="arrow_down"></i>
             </div>
@@ -58,7 +55,7 @@
               <li><div>ZH <img src="${pageContext.request.contextPath}/Images/Header/ZH_img.png"></div></li>             
             </ul>
          </div>
-         <li >
+         <li class="large_menu_items">
             <div id="account_div" onclick="toggle_acc_menu();">
                My Account<i id="acc_arrow" class="arrow_down"></i>
             </div> 
@@ -72,7 +69,51 @@
        </ul>
      </div>
    </div>
+</div><!-- End of  header-wrapper-->
+<div id="cover_screen">
 </div>
-
+<div id="small_menu">
+  <ul id="first_small_ul">
+    <li class="small_menu_items">
+      <div id="small_account_div"  onclick="toggle_small_acc_menu()">
+          My Account<i id="small_acc_arrow" class="arrow_down"></i>
+      </div>
+      <div id="small_account_menu" class="small_menu_divs">
+           <ul>
+              <a href="#"><li id="small_acc_men_first_item" class="small_menu_subitems first_submenu_item"><div>Login</div></li></a>
+              <a href="#"><li class="small_menu_subitems last_submenu_item"><div>Sign up</div></li></a>              
+            </ul>
+      </div> 
+    </li>
+    <li class="small_menu_items">
+      <div id="small_currency_div" onclick="toggle_small_cur_menu()">
+         CAD<i id="small_cur_arrow" class="arrow_down"></i>
+      </div>
+      <div id="small_currency_menu" class="small_menu_divs">
+           <ul class="small_currency_menu_items">
+              <li class="small_menu_subitems first_submenu_item"><div>CAD - <span>Canadian Dollar</span></div></li>
+              <li class="small_menu_subitems"><div>USD - <span>US Dollar</span></div></li>
+              <li class="small_menu_subitems"><div>EUR - <span>Euro</span></div></li>
+              <li class="small_menu_subitems"><div>AUD - <span>Australian Dollar</span></div></li>
+              <li class="small_menu_subitems"><div>GBP - <span>British Pound</span></div></li>
+              <li class="small_menu_subitems last_submenu_item"><div>CNY - <span>Chinese Yuan</span></div></li> 
+           </ul>
+         </div>
+    </li>
+    <li class="small_menu_items">
+      <div id="small_language_div" onclick="toggle_small_lan_menu()">
+         EN<i id="small_lan_arrow" class="arrow_down"></i>
+      </div>
+      <div id="small_language_menu" class="small_menu_divs">
+           <ul>
+              <li  class="small_menu_subitems first_submenu_item"><div id="EN_div"><span>EN</span></div></li>
+              <li class="small_menu_subitems"><div id="FR_div">FR</div></li>
+              <li class="small_menu_subitems"><div id="ES_div">ES</div></li>
+              <li class="small_menu_subitems   last_submenu_item"><div id="ZH_div">ZH</div></li>
+           </ul>
+      </div>
+    </li>
+   </ul> 
+</div>
 </body>
 </html>
