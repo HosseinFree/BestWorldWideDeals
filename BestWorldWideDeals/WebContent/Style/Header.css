@@ -203,14 +203,14 @@ html, body {
 
 #language_div{
 	/*width: 4em;*/
-	margin-left: 2em;
+	margin-left: 1.4em;
 	width: auto;	
 	cursor: pointer;
 }
 
 #account_div{
 	/*width: 8.5em;*/
-	margin-left: 2em;
+	margin-left: 1.4em;
 	width: auto;
 	cursor: pointer;
 }
@@ -261,7 +261,7 @@ html, body {
 .callout {
 	position: absolute;
 	width: auto;
-	margin-left: 9.3em;
+	margin-left: 9.1em;
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
@@ -341,7 +341,7 @@ html, body {
 .lan_callout {
 	position: absolute;
 	width: auto;
-	margin-left: 3.3em;
+	margin-left: 3.1em;
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
