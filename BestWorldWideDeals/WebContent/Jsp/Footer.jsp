@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	    
+<fmt:requestEncoding value="UTF-8" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<c:set var="loc" value="en_GB"/>
+<c:if test="${!(empty param.locale)}">
+   <c:set var="loc" value="${param.locale}"/>
+</c:if>
+<fmt:setLocale value="${loc}"/>
 <head>
+<fmt:bundle basename="app">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
@@ -18,7 +27,7 @@
   <div id="footer_top_div">
     <ul id="footer_top_div_list">
      <li  id="footer_top_div_firstDiv">
-		    <p>Connect With Us</p>		
+		    <p><fmt:message key="connectWithUs"/></p>		
 			<ul id="social_media">
 			    <li> 
 			    	<a href=""><div id="facebook_icon"></div></a>
@@ -40,8 +49,9 @@
 	  </li>
 	  <li id="footer_top_div_secondDiv">
 	    <div id="news_div">
-		    <p>Join Our Newsletter</p>
-		    <div id="submit"><input type="text" id="news_email" placeholder="Enter Your Email Address" /><div>Submit</div></div>
+		    <p><fmt:message key="joinOurNewsletter"/></p>
+		    <div id="submit"><input type="text" id="news_email" placeholder="<fmt:message key="enterYourEmailAddress"/>" />
+		    <div><fmt:message key="submit"/></div></div>
 		</div>   
 	  </li>
     </ul> 
@@ -50,21 +60,20 @@
   <div id="footer_bottom_div">
        <div align="center">
 		   <ul id="footermenu">
-			  <li><a href="">Help</a></li>
-			  <li><a href="">About</a></li>
-			  <li><a href="">Disclaimer</a></li>
-			  <li><a href="">Contact Us</a></li>
-			  <li><a href="">Terms of Use</a></li>
-			  <li><a href="">Privacy Policy</a></li>
-			  <li><span onclick="create_report()">Report a Problem</span></li>
+			  <li><a href=""><fmt:message key="help"/></a></li>
+			  <li><a href=""><fmt:message key="about"/></a></li>
+			  <li><a href=""><fmt:message key="disclaimer"/></a></li>
+			  <li><a href=""><fmt:message key="contactUs"/></a></li>
+			  <li><a href=""><fmt:message key="termsofUse"/></a></li>
+			  <li><a href=""><fmt:message key="privacyPolicy"/></a></li>
+			  <li><span onclick="create_report()"><fmt:message key="reportaProblem"/></span></li>
 		   </ul>
 		   <p>&#169;
 			  Copyright 2018 BestWorldWideDeals.com, All rights reserved.</p>
 	    </div>
   
   </div>
-  
 </div>
-
 </body>
+</fmt:bundle>
 </html>

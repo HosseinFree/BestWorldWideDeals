@@ -1,8 +1,6 @@
 @CHARSET "ISO-8859-1";
 
 html, body {
-	background: green;
-	width: 100%;
 	margin: 0;
 	padding: 0;
 }
@@ -168,7 +166,7 @@ html, body {
 
 #footer_top_div_firstDiv{
 	width: 100%;
-	height: 100%;
+	height: 7em;
 	background:#262626;
 	padding-top: 1.2em;
 	min-width:19em;
@@ -264,7 +262,7 @@ html, body {
 	height: 100%;
 	padding-right:.4em;
 	line-height: 25px;
-	width: 4.3em;
+	width: 4.8em;
 	vertical-align: middle;
 	border:none;
 	border-radius:0;
@@ -277,11 +275,11 @@ html, body {
 }
 
 #news_email{
-	width: 13.4em;
+	width: 14.4em;
 	height: 100%;
 	margin-top: 0;
 	float:left;
-	font-size: .8em;
+	font-size: .85em;
 	padding-left: 10px;
 	padding-right: 20px;
 	padding-bottom:0;
@@ -329,7 +327,7 @@ html, body {
 
 #footer_top_div_firstDiv{
 	width: 100%;
-	height: 100%;
+	height: 8em;
 	padding-top: 1.2em;
 }
 
@@ -340,7 +338,7 @@ html, body {
 	width: 100%;
 	height: 8em;
 	padding-top: 1.2em;
-	padding-bottom: 2.8em;
+	padding-bottom: 2.2em;
 }
 	
 #social_media{
@@ -431,11 +429,11 @@ html, body {
 }
 
 #news_email {
-	width: 13.8em;
+	width: 14.2em;
 	height: 100%;
 	margin-top: 0;
 	float:left;
-	font-size: .8em;
+	font-size: .9em;
 	padding-left: 10px;
 	padding-right: 20px;
 	padding-bottom:0;
@@ -488,8 +486,8 @@ html, body {
 
 #footer_top_div_firstDiv{
 	width: 100%;
-	height: 100%;
-	padding-top: 1.2em;
+	height: 9.8em;
+	padding-top: 1.4em;
 }
 
 #footer_top_div_firstDiv p{
@@ -498,8 +496,8 @@ html, body {
 #footer_top_div_secondDiv{
 	width: 100%;
 	height:10em;
-	padding-top: 1.2em;
-	padding-bottom: 2.8em;
+	padding-top: .2em;
+	padding-bottom: 1.4em;
 }
 	
 #social_media{
@@ -588,7 +586,7 @@ html, body {
 }
 
 #news_email {
-	width: 14em;
+	width: 15.8em;
 	height: 100%;
 	margin-top: 0;
 	float:left;
@@ -719,11 +717,11 @@ html, body {
 	border-bottom-right-radius:40px;
 	position: relative;
 	float:right;
-    text-align:center;	
+    text-align:center;
 }
 
 #news_email {
-	width: 14em;
+	width: 15.8em;
 	height: 100%;
 	margin-top: 0;
 	float:left;
@@ -736,7 +734,7 @@ html, body {
 }
 
 #footer_bottom_div {
-	height: 7em;
+	height: 9em;
 }	
 
 #footer_bottom_div p{

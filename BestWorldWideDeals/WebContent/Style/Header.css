@@ -13,6 +13,14 @@ html, body {
 	background: Black;
 }	
 
+#menu_wrapper{
+	width:100%;
+	height:100%;
+	max-width:1370px;
+	margin: 0 auto;
+	
+}
+
 #logo-div {
 	position: relative;
 	width: 45%;
@@ -45,6 +53,7 @@ html, body {
 
 #small_menu{
 	position: fixed;
+	z-index:6;
 	overflow:auto;
 	background:#4a4a4a;
 	display:none;
@@ -56,7 +65,19 @@ html, body {
 	list-style-type: none;
 }
 
-.small_menu_subitems {
+.small_menu_subitems a{
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	text-decoration:none;
+}
+
+.small_menu_subitems a:hover {
+   color: #f49000;
+}	
+	
+
+.small_menu_subitems{
 	color: #ffffff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
@@ -104,9 +125,19 @@ html, body {
     display:none;	
 }
 
+.small_menu_divs div{
+    width: auto;
+}	
+
+#small_language_menu li div{
+	background-repeat: no-repeat;
+	background-size: 1.5em;
+	background-position:center;
+}	
 
 #cover_screen{
 	position: fixed;
+	z-index:5;
 	opacity: 0.2;
     filter: alpha(opacity=20);
 	background: black;
@@ -157,7 +188,7 @@ html, body {
 	position: relative;
 	list-style-type: none;
 	float: right;
-	width: 68%;
+	width: 64%;
 	
 }
 
@@ -174,6 +205,8 @@ html, body {
 	line-height: 2.4em;
 	/*border-left: 1px dotted #595959;*/
 }
+
+
 
 
 #large-menu ul li div:hover ~ .arrow_down{
@@ -399,6 +432,16 @@ html, body {
 	
 }
 
+#large-menu ul li a{
+    text-decoration: none;
+    outline:none;
+    color: white;
+}
+
+#large-menu ul li a:hover{
+	color: #f49000;
+}	
+
 #language_menu ul li div {
 	position: relative;
 	padding-left:.5em;
@@ -422,11 +465,7 @@ html, body {
     
 }	
 	
-#language_menu ul li:hover>div {
-	/*color: #4d94ff;*/
-	color: #f49000;
-	
-}
+
 
 /*############################################### currency menu ###########################################*/
 .cur_callout {
@@ -518,6 +557,7 @@ html, body {
 
 @media screen and (max-width:319px) {
 #header-wrapper{
+	position: fixed;
    	height: 3.5em;
 }	
 #logo-div {
@@ -568,18 +608,6 @@ html, body {
 	line-height: 2em;
 }
 
-#small_account_menu div{
-	width: 3.7em;
-}
-
-#small_currency_menu div{
-	width: 10.5em;
-}
-
-#small_language_menu div{
-	width: 4em;
-}
-
 #small_language_menu ul li div img{
 	width: 22px;
 	margin-left: 1.2em;
@@ -590,13 +618,6 @@ html, body {
 #cover_screen{
 	width: 100%;
 	height: 100%;
-}
-
-#small_language_menu li div{
-	background-repeat: no-repeat;
-	background-size: 1.5em;
-	background-position:right;
-	
 }
 
 .first_submenu_item{
@@ -612,6 +633,7 @@ html, body {
 
 @media screen and (max-width:480px) and (min-width:320px) {
 #header-wrapper{
+	position: fixed;
    	height: 3.8em;
 }	
 #logo-div {
@@ -662,17 +684,6 @@ html, body {
 	line-height: 2em;
 }
 
-#small_account_menu div{
-	width: 3.7em;
-}
-
-#small_currency_menu div{
-	width: 10.5em;
-}
-
-#small_language_menu div{
-	width: 4em;
-}
 
 #small_language_menu ul li div img{
 	width: 22px;
@@ -684,13 +695,6 @@ html, body {
 #cover_screen{
 	width: 100%;
 	height: 100%;
-}
-
-#small_language_menu li div{
-	background-repeat: no-repeat;
-	background-size: 1.5em;
-	background-position:right;
-	
 }
 
 #large-menu{
@@ -706,6 +710,7 @@ html, body {
 
 @media screen and (max-width: 1024px) and (min-width: 481px) {
 #header-wrapper{
+	position: fixed;
   	height: 4.7em;
 }	
 
@@ -772,21 +777,10 @@ html, body {
 	width: 100%;
 }
 
-#small_account_menu div{
-	width: 4em;
-}
+
 .first_submenu_item{
    margin-top: -.7em;	
   
-}
-
-#small_currency_menu div{
-	width: 11em;
-}
-
-
-#small_language_menu div{
-	width: 4em;
 }
 
 
@@ -799,13 +793,6 @@ html, body {
   padding-bottom:.9em;
 }
 	
-#small_language_menu li div{
-	background-repeat: no-repeat;
-	background-size: 1.5em;
-	background-position:right;
-	
-}
-
 }
 
 @media screen and (min-width: 1025px) {
@@ -816,11 +803,12 @@ html, body {
 
 #logo-div {
 	background-size: 13em;
-	margin-left: 1em;
+	margin-left: .4em;
 }	
 
 #menu{
 	margin-top: -5.5em;
+	padding-right: 1em;
 }
 
 #small_menu_icon{
@@ -845,7 +833,15 @@ html, body {
 }
 
 @media screen and (min-width: 1370px) {
-
+	
+#logo-div {
+  margin-left: -1em;
+}	
+	
+#menu{
+  padding-right: 0;
+}
+	
 #small_menu_icon{
  display: none;	
 }

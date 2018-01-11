@@ -1,7 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	    
+<fmt:requestEncoding value="UTF-8" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<c:set var="loc" value="en_GB"/>
+<c:if test="${!(empty param.locale)}">
+   <c:set var="loc" value="${param.locale}"/>
+</c:if>
+
+<fmt:setLocale value="${loc }"/>
+<fmt:bundle basename="app">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
@@ -13,9 +25,14 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Style/Header.css">
 
 </head>
+
+
+<title><fmt:message key="appInfo"/></title>
+</head>
 <body>
 
 <div id="header-wrapper">
+  <div id="menu_wrapper">
    <div id="logo-div">
    </div>
 		<div id="menu">
@@ -60,63 +77,90 @@
 								</div></li>
 						</ul>
 					</div>
+					
+					<c:url value="${pageContext.request.getRequestURL()}" var="frURL">
+					   <c:param name="locale" value="fr_FR"/>
+					   <c:param name="lan_val" value="FR"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.getRequestURL()}" var="enURL">
+					   <c:param name="locale" value="en_GB"/>
+					   <c:param name="lan_val" value="EN"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.getRequestURL()}" var="esURL">
+					   <c:param name="locale" value="es_ES"/>
+					   <c:param name="lan_val" value="ES"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.getRequestURL()}" var="zhURL">
+					   <c:param name="locale" value="zh_HK"/>
+					   <c:param name="lan_val" value="ZH"/>
+					</c:url>
+					
+					
 					<li class="large_menu_items">
-						<div id="language_div" onclick="toggle_lan_menu();">EN</div>
+					   <c:set var="lan_val" value="EN"/>
+					   <c:if test="${!(empty param.lan_val)}">
+					       <c:set var="lan_val" value="${param.lan_val}"/>
+					   </c:if>
+					   <div id="language_div" onclick="toggle_lan_menu();">${lan_val}</div>
+					   
+					     
 						<i id="lan_arrow" class="arrow_down"></i>
 					</li>
 					<div id="language_menu" class="lan_callout lan_border_callout">
 						<b class="lan_border_notch lan_notch"></b><b class="lan_notch"></b>
 						<ul>
-							<li class="lan_men_items" onclick="set_value('language','EN')"><div>
-									<span>EN</span> <img
+							<li class="lan_men_items" ><a href="${enURL}"><div>
+									EN <img
 										src="${pageContext.request.contextPath}/Images/Header/EN_img.png">
-								</div></li>
-							<br />
-							<li class="lan_men_items" onclick="set_value('language','FR')"><div>
+								</div></a></li>
+							<br/>
+							<li class="lan_men_items" ><a href="${frURL}"><div>
 									FR <img
 										src="${pageContext.request.contextPath}/Images/Header/FR_img.png">
-								</div></li>
-							<br />
-							<li class="lan_men_items" onclick="set_value('language','ES')"><div>
+								</div></a></li>
+							<br/>
+							<li class="lan_men_items" ><a href="${esURL}"><div>
 									ES <img
 										src="${pageContext.request.contextPath}/Images/Header/ES_img.png">
-								</div></li>
+								</div></a></li>
 							<br />
-							<li><div onclick="set_value('language','ZH')">
+							<li><a href="${zhURL}"><div >
 									ZH <img
 										src="${pageContext.request.contextPath}/Images/Header/ZH_img.png">
-								</div></li>
+								</div></a></li>
 						</ul>
 					</div>
 					<li class="large_menu_items">
-						<div id="account_div" onclick="toggle_acc_menu();">My
-							Account</div>
+					    <div id="account_div" onclick="toggle_acc_menu();"><fmt:message key="myAccount"/></div>
 						<i id="acc_arrow" class="arrow_down"></i>
 					</li>
 					<div id="account_menu" class="callout border_callout">
 						<b class="border_notch notch"></b><b class="notch"></b>
 						<ul>
-							<a href="#"><li class="acc_men_items" id="acc_men_first_item"><div>Login</div></li></a>
+							<a href="#"><li class="acc_men_items" id="acc_men_first_item"><div><fmt:message key="logIn"/></div></li></a>
 							<br />
-							<a href="#"><li class="acc_men_items"><div>Sign up</div></li></a>
+							<a href="#"><li class="acc_men_items"><div><fmt:message key="signUp"/></div></li></a>
 						</ul>
 					</div>
 				</ul>
 			</div> <!-- End of large-menu -->
 		</div> <!--  End of menu div -->
-	</div><!-- End of  header-wrapper-->
+	
 <div id="cover_screen">
 </div>
 <div id="small_menu">
   <ul id="first_small_ul">
     <li class="small_menu_items">
       <div id="small_account_div"  onclick="toggle_small_acc_menu()">
-          My Account<i id="small_acc_arrow" class="arrow_down"></i>
+          <fmt:message key="myAccount"/><i id="small_acc_arrow" class="arrow_down"></i>
       </div>
       <div id="small_account_menu" class="small_menu_divs">
            <ul>
-              <a href="#"><li id="small_acc_men_first_item" class="small_menu_subitems first_submenu_item"><div>Login</div></li></a>
-              <a href="#"><li class="small_menu_subitems last_submenu_item"><div>Sign up</div></li></a>              
+              <a href="#"><li id="small_acc_men_first_item" class="small_menu_subitems first_submenu_item"><div><fmt:message key="logIn"/></div></li></a>
+              <a href="#"><li class="small_menu_subitems last_submenu_item"><div><fmt:message key="signUp"/></div></li></a>              
             </ul>
       </div> 
     </li>
@@ -137,18 +181,24 @@
     </li>
     <li class="small_menu_items">
       <div id="small_language_div" onclick="toggle_small_lan_menu()">
-         <span id="small_language_val">EN</span><i id="small_lan_arrow" class="arrow_down"></i>
+         <span id="small_language_val">${lan_val}</span><i id="small_lan_arrow" class="arrow_down"></i>
       </div>
       <div id="small_language_menu" class="small_menu_divs">
            <ul>
-              <li  class="small_menu_subitems first_submenu_item" onclick="set_value('#language','EN')"><div id="EN_div"><span>EN</span></div></li>
-              <li class="small_menu_subitems" onclick="set_value('language','FR')"><div id="FR_div">FR</div></li>
-              <li class="small_menu_subitems" onclick="set_value('language','ES')"><div id="ES_div">ES</div></li>
-              <li class="small_menu_subitems   last_submenu_item" onclick="set_value('language','ZH')"><div id="ZH_div">ZH</div></li>
+              <li  class="small_menu_subitems first_submenu_item" onclick="set_value('#language','EN')"><a href="${enURL}"><div id="EN_div"><span>EN</span></div></a></li>
+              <li class="small_menu_subitems" onclick="set_value('language','FR')"><a href="${frURL}"><div id="FR_div">FR</div></a></li>
+              <li class="small_menu_subitems" onclick="set_value('language','ES')"><a href="${esURL}"><div id="ES_div">ES</div></a></li>
+              <li class="small_menu_subitems   last_submenu_item" onclick="set_value('language','ZH')"><a href="${zhURL}"><div id="ZH_div">ZH</div></a></li>
            </ul>
       </div>
     </li>
    </ul> 
 </div> <!-- End of small_menu div -->
+</div> <!-- End of  menu-wrapper-->
+</div><!-- End of  header-wrapper-->
+
+
 </body>
+</fmt:bundle>
+
 </html>
