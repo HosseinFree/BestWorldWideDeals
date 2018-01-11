@@ -78,24 +78,32 @@ $( document ).ready(function() {
 
 $(window).resize(function() {
       if(is_small_from_date_window_open){
+    	  $('#from_date_input').css('border','2px solid #dedede');
+		  $('#from_date_input').css('box-shadow', 'none');
     	  is_small_from_date_window_open = false;
     	  document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
     	  $('#small_from_calendar').hide();
       }
       
       if(is_small_to_date_window_open){
+    	  $('#to_date_input').css('border','2px solid #dedede');
+		  $('#to_date_input').css('box-shadow', 'none');
     	  is_small_to_date_window_open = false;
     	  document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
     	  $('#small_to_calendar').hide();
       }
       
       if(is_from_date_window_open){
+    	  $('#from_date_input').css('border','2px solid #dedede');
+		  $('#from_date_input').css('box-shadow', 'none');
     	  is_from_date_window_open = false;
     	  document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
     	  $('#from_calendar').hide();
       }
       
       if(is_to_date_window_open){
+    	  $('#to_date_input').css('border','2px solid #dedede');
+		  $('#to_date_input').css('box-shadow', 'none');
     	  is_to_date_window_open = false;
     	  document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
     	  $('#to_calendar').hide();
@@ -109,17 +117,24 @@ document.addEventListener('click',function(elem) {
 	if (!( elem.target.id == "to_date_val" || elem.target.id == "to_calendar" || elem.target.id == "to_date_input" ||
 		elem.target.id == "to_right_nav" || elem.target.id == "to_left_nav" || 
 		     $(elem.target).parents("#to_calendar").length > 0 ) ){
-
-	is_to_date_window_open = false;
-	document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
-	$("#to_calendar").hide();
-   }    
+		if(is_to_date_window_open){
+		   $('#to_date_input').css('border','2px solid #dedede');
+	       $('#to_date_input').css('box-shadow', 'none');
+		}
+	    is_to_date_window_open = false;
+	    document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+	    $("#to_calendar").hide();
+    }    
 });
 
 document.addEventListener('click',function(elem) {	
 	if (!(  elem.target.id == "from_date_val" || elem.target.id == "from_calendar" || elem.target.id == "from_date_input" ||
 			elem.target.id == "from_right_nav" || elem.target.id == "from_left_nav" || 
 			     $(elem.target).parents("#from_calendar").length > 0 ) ){
+		if(is_from_date_window_open){
+		   $('#from_date_input').css('border','2px solid #dedede');
+	       $('#from_date_input').css('box-shadow', 'none');
+		}   
 		is_from_date_window_open = false;
 		document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
 		$("#from_calendar").hide();
@@ -131,21 +146,27 @@ document.addEventListener('click',function(elem) {
 	if (!( elem.target.id == "small_from_date_val" || elem.target.id == "small_from_calendar" || elem.target.id == "from_date_input" ||
 		elem.target.id == "small_from_right_nav" || elem.target.id == "small_from_left_nav" || 
 		     $(elem.target).parents("#small_from_calendar").length > 0 ) ){
-
-	is_small_from_date_window_open = false;
-	document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
-	$("#small_from_calendar").hide();
-   }    
+		if(is_small_from_date_window_open){
+		   $('#from_date_input').css('border','2px solid #dedede');
+	       $('#from_date_input').css('box-shadow', 'none');
+		}   
+	    is_small_from_date_window_open = false;
+	    document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+	    $("#small_from_calendar").hide();
+     }    
 });
 
 document.addEventListener('click',function(elem) {
 	if (!( elem.target.id == "small_to_date_val" || elem.target.id == "small_to_calendar" || elem.target.id == "to_date_input" ||
 		elem.target.id == "small_to_right_nav" || elem.target.id == "small_to_left_nav" || 
 		     $(elem.target).parents("#small_to_calendar").length > 0 ) ){
-
-	is_small_to_date_window_open = false;
-	document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
-	$("#small_to_calendar").hide();
+		if(is_small_to_date_window_open){
+		   $('#to_date_input').css('border','2px solid #dedede');
+	       $('#to_date_input').css('box-shadow', 'none');
+		}   
+	    is_small_to_date_window_open = false;
+	    document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+	    $("#small_to_calendar").hide();
    }    
 });
 
@@ -260,12 +281,14 @@ function showCalendar(element,type,startDate){
     		var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth()-1, 1);
      	   if (is_from_date_window_open){
 		      document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
-		      
+		      $('#from_date_input').css('border','2px solid #dedede');
+			  $('#from_date_input').css('box-shadow', 'none');
 		      $('#from_calendar').hide();
 		      is_from_date_window_open = false;
 		      return;
 		   }else{
 			   $('#from_date_input').css('border','2px solid #80b3ff');
+			   $('#from_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
 			   is_from_date_window_open = true;		
 	     	}   
     	}
@@ -274,10 +297,14 @@ function showCalendar(element,type,startDate){
     		  var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth(), 1);
 	          if (is_small_from_date_window_open){
 		          document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+		          $('#from_date_input').css('border','2px solid #dedede');
+				  $('#from_date_input').css('box-shadow', 'none');
 			      $('#small_from_calendar').hide();
 			      is_small_from_date_window_open = false;
 			      return;
 			   }else{
+				   $('#from_date_input').css('border','2px solid #80b3ff');
+				   $('#from_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
 				   is_small_from_date_window_open = true;		
 		     	}
     	}   
@@ -289,10 +316,14 @@ function showCalendar(element,type,startDate){
 			var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth()-1, 1);
 		    if (is_to_date_window_open){	 
                  document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+                 $('#to_date_input').css('border','2px solid #dedede');
+				 $('#to_date_input').css('box-shadow', 'none');
 			     $('#to_calendar').hide();
 			     is_to_date_window_open = false;
 			     return;
 	        }else{
+	        	 $('#to_date_input').css('border','2px solid #80b3ff');
+				 $('#to_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
 	    	     is_to_date_window_open = true;		
 	        }
 	    }
@@ -301,10 +332,14 @@ function showCalendar(element,type,startDate){
 			var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth(), 1);
 	          if (is_small_to_date_window_open){
 		          document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+		          $('#to_date_input').css('border','2px solid #dedede');
+			      $('#to_date_input').css('box-shadow', 'none');
 			      $('#small_to_calendar').hide();
 			      is_small_to_date_window_open = false;
 			      return;
 			   }else{
+				   $('#to_date_input').css('border','2px solid #80b3ff');
+				   $('#to_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
 				   is_small_to_date_window_open = true;		
 		       }
   	    }
@@ -340,12 +375,16 @@ function setDate(element,date){
     	
     	if(is_from_date_window_open){
     		document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+    		$('#from_date_input').css('border','2px solid #dedede');
+			$('#from_date_input').css('box-shadow', 'none');
 			is_from_date_window_open = false;
 	    	$("#from_calendar").hide();
     	}
     	
     	if(is_small_from_date_window_open){
     		document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+    		$('#from_date_input').css('border','2px solid #dedede');
+			$('#from_date_input').css('box-shadow', 'none');
 			is_small_from_date_window_open = false;
 	    	$("#small_from_calendar").hide();
     	}
@@ -368,12 +407,16 @@ function setDate(element,date){
     	
     	if(is_to_date_window_open){
     		document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+    		$('#to_date_input').css('border','2px solid #dedede');
+			$('#to_date_input').css('box-shadow', 'none');
     		is_to_date_window_open = false;
     	    $('#to_calendar').hide();
     	}
     	
     	if(is_small_to_date_window_open){
     		document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+    		$('#to_date_input').css('border','2px solid #dedede');
+			$('#to_date_input').css('box-shadow', 'none');
     		is_small_to_date_window_open = false;
     	    $('#small_to_calendar').hide();
     	}
