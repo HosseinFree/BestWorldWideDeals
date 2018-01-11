@@ -287,8 +287,8 @@ function showCalendar(element,type,startDate){
 		      is_from_date_window_open = false;
 		      return;
 		   }else{
-			   $('#from_date_input').css('border','2px solid #80b3ff');
-			   $('#from_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
+			   $('#from_date_input').css('border','2px solid #f49000');
+			   $('#from_date_input').css('box-shadow', '0px 0px 8px #f49000');
 			   is_from_date_window_open = true;		
 	     	}   
     	}
@@ -303,8 +303,8 @@ function showCalendar(element,type,startDate){
 			      is_small_from_date_window_open = false;
 			      return;
 			   }else{
-				   $('#from_date_input').css('border','2px solid #80b3ff');
-				   $('#from_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
+				   $('#from_date_input').css('border','2px solid #f49000');
+				   $('#from_date_input').css('box-shadow', '0px 0px 8px #f49000');
 				   is_small_from_date_window_open = true;		
 		     	}
     	}   
@@ -322,8 +322,8 @@ function showCalendar(element,type,startDate){
 			     is_to_date_window_open = false;
 			     return;
 	        }else{
-	        	 $('#to_date_input').css('border','2px solid #80b3ff');
-				 $('#to_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
+	        	 $('#to_date_input').css('border','2px solid #f49000');
+				 $('#to_date_input').css('box-shadow', '0px 0px 8px #f49000');
 	    	     is_to_date_window_open = true;		
 	        }
 	    }
@@ -338,8 +338,8 @@ function showCalendar(element,type,startDate){
 			      is_small_to_date_window_open = false;
 			      return;
 			   }else{
-				   $('#to_date_input').css('border','2px solid #80b3ff');
-				   $('#to_date_input').css('box-shadow', '0px 0px 8px #b3d1ff');
+				   $('#to_date_input').css('border','2px solid #f49000');
+				   $('#to_date_input').css('box-shadow', '0px 0px 8px #f49000');
 				   is_small_to_date_window_open = true;		
 		       }
   	    }

@@ -4,13 +4,13 @@ html {width: 100%; height: 100%; padding: 0; margin: 0;}
 body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;background: #dedede;}
 
 #search_div{
-	background: #ffffff;
 	margin-left: auto;
 	margin-right: auto;
 	max-width: 1370px;
     border-radius: 10px;
 	border: 1px solid #a6a6a6;
-	box-shadow: 0px 5px 12px #888888;
+	background:rgba(0,0,0,.7);
+    box-shadow:none;
 }
 
 .search_text_inputs {
@@ -23,12 +23,15 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	-ms-appearance: none;
 	-o-appearance: none;
 	appearance: none;
+	background:white;
 }
 
 	
 .search_text_inputs:focus {
-    border: 2px solid #80b3ff;
-	box-shadow: 0px 0px 8px #b3d1ff;
+    /*border: 2px solid #80b3ff;
+	box-shadow: 0px 0px 8px #b3d1ff;*/
+	border: 2px solid #f49000;
+	box-shadow: 0px 0px 8px #f49000;
 	outline: none;
 }
 
@@ -72,7 +75,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 
 .search_labels{
 	font-family: Arial, Helvetica, sans-serif;
-	color: #3399ff;
+	color: #f49000;
 	font-weight: bold;
 	
 }
@@ -247,7 +250,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	background: #4d4d4d;
     border: 2px solid  #f49000;
    	box-shadow: 0 2px 2px #444;
-   	top: 11em;
+   	/*top: 11em;*/
    	width:76%;
    	margin-left:auto;
    	margin-right:auto;
@@ -344,7 +347,8 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:.95em;
 	font-style:normal;
-	color:#000099;
+	font-weight:bold;
+	color:#ff770d;
 }
 
 
@@ -381,11 +385,20 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	width:100%;
 }
 
+#top_content{
+	padding-top:5em;
+	width:100%;
+	height:auto;
+	background: url('../Images/Index_hotels/bg.jpeg') no-repeat center center fixed; 
+	background-size:cover;
+	padding-bottom:3em;
+}
+
 
 #search_div{
    width: 85%;
    height: 30em;
-   margin-top: 8em;	
+   margin-top: 2em;	
 }
 
 #search_input{
@@ -515,12 +528,12 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 }
 
 #small_from_calendar{
-	top: 11.3em;
+	top:18.4em;
 	
 }
 
 #small_to_calendar{
-	top: 18.1em;
+	top: 25.2em;
 	
 }
 
@@ -558,11 +571,19 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	width:100%;
 }
 
+#top_content{
+	padding-top:5em;
+	width:100%;
+	height:auto;
+	background: url('../Images/Index_hotels/bg.jpeg') no-repeat center center fixed; 
+	background-size:cover;
+	padding-bottom:3em;
+}
 
 #search_div{
    width: 85%;
    height: 30em;
-   margin-top: 11em;	
+   margin-top: 3em;	
 }
 
 #search_input{
@@ -689,6 +710,10 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	margin-right:.6em;
 }
 
+.small_date_callout {
+   	top:19em;
+}
+
 .small_date_notch {
 	margin-top: -23px;
 	margin-left: 55px;
@@ -734,10 +759,19 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	width:100%;
 }
 
+#top_content{
+	padding-top:5em;
+	width:100%;
+	height:auto;
+	background: url('../Images/Index_hotels/bg.jpeg') no-repeat center center fixed; 
+	background-size:cover;
+	padding-bottom:5em;
+}
+
 #search_div{
    width: 45em;
    height: 30em;
-   margin-top: 11em;	
+   margin-top: 4em;	
 }
 
 #search_tab{
@@ -904,14 +938,22 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 @media screen and (min-width: 1025px) {
 	
 #content_wrapper{
-	height: 50em;
+	height: 80em;
 	width:100%;
+}
+
+#top_content{
+	padding-top:5em;
+	width:100%;
+	height:auto;
+	background: url('../Images/Index_hotels/bg.jpeg') no-repeat center center fixed; 
+	background-size:cover;
+	padding-bottom:5em;
 }
 
 #search_div{
    width: 60em;
    height: 30em;
-   margin-top: 8em;	
 }
 
 #search_tab{
@@ -928,6 +970,8 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	font: 1.4em Arial, Helvetica, sans-serif;
 	height: 2.4em;
 	margin-top: .5em;
+	
+	opacity:1;
 }
 
 #search_input{
