@@ -300,16 +300,22 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 }	
 
 
-.rem_butt_td{
-	background:red;
+#search_button{
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:white;
+    background:#f49000;	
 }
+
+/*###################  Search Button #########################*/
+#search_button{
+	width:100%;
+	background:#f49000;
+	cursor:pointer;
+}
+
 
 @media screen and (max-width:480px) {
-
-#content_wrapper{
-	height: 30em;
-	width:100%;
-}
 
 #header_div{
 	position: fixed;
@@ -318,7 +324,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 }
 
 #content_wrapper{
-	height: 60em;
+	height: 80em;
 	width:100%;
 }
 
@@ -446,9 +452,10 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 /*################### Rooms Info #################*/
 
 #rooms_info_menu{
+	position:absolute;
 	padding:.6em;
 	width: 12.7em;
-	margin-top:.6em;
+	margin-top:6.2em;
 	float:right;
 }
 
@@ -564,7 +571,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 #room_selector_menu{
 	position:absolute;
 	display:none;
-	margin-top: 1em;
+	margin-top: .7em;
 	width:75%;
 	height:auto;
 }
@@ -621,6 +628,16 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	font-style:normal;
 }
 
+/*###################  Search Button #########################*/
+#search_button{
+	height:2.4em;
+	margin-top: 2.1em;
+	border: 3px solid #ffffff;
+	border-radius:5px;
+	font-size:1em;
+}
+
+
 }
 
 
@@ -644,7 +661,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 
 #search_div{
    width: 85%;
-   height: 30em;
+   height: 25em;
    margin-top: 3em;	
 }
 
@@ -773,10 +790,10 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 /*################### Rooms Info Menu #################*/
 
 #rooms_info_menu{
+	position:absolute;
 	padding:1em;
 	width: 14.7em;
-	margin-top:.6em;
-	float:right;
+	margin-top:12.8em;
 }
 
 .room_info_notch {
@@ -937,6 +954,16 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	font-style:normal;
 }
 
+/*###################  Search Button #########################*/
+#search_button{
+	height:2.2em;
+	margin-top: 2.1em;
+	border: 3px solid #ffffff;
+	border-radius:5px;
+	font-size:1.1em;
+}
+
+
 }
 
 @media screen and (max-width: 1024px) and (min-width: 800px){
@@ -959,7 +986,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 
 #search_div{
    width: 45em;
-   height: 20em;
+   height: 22em;
    margin-top: 4em;	
 }
 
@@ -975,7 +1002,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
     -moz-box-sizing: border-box;    
     box-sizing: border-box;
 	font: 1.2em Arial, Helvetica, sans-serif;
-	height: 2.2em;
+	height: 2.4em;
     margin-top: .5em;
 }
 
@@ -1083,10 +1110,11 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 /*################### Rooms Info Menu #################*/
 
 #rooms_info_menu{
+	position:absolute;
 	padding:1em;
 	width: 25em;
-	margin-top:.6em;
-	float:right;
+	margin-top:6.9em;
+	margin-left:14.8em;
 }
 
 .room_info_notch {
@@ -1182,12 +1210,11 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 }
 
 #room_selector_menu{
-	position:relative;
+	position:absolute;
 	display:none;
-	margin-top: .6em;
-	width:13em;
+	margin-top: 4.2em;
+	width:13.2em;
 	height:auto;
-	float:right;
 }
 
 #room_selector_menu div{
@@ -1244,6 +1271,15 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	height:6.4em;
 }
 
+/*###################  Search Button #########################*/
+#search_button{
+	height:2.2em;
+	margin-top: 2em;
+	border: 3px solid #ffffff;
+	border-radius:5px;
+	font-size:1.3em;
+}
+
 }
 	
 @media screen and (min-width: 1025px) {
@@ -1261,7 +1297,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 
 #search_div{
    width: 60em;
-   height: 20em;
+   height: 22em;
    padding-bottom:4em;
 }
 
@@ -1380,10 +1416,11 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 /*################### Rooms Info Menu #################*/
 
 #rooms_info_menu{
+	position:absolute;
 	padding:1em;
 	width: 25em;
-	margin-top:.6em;
-	float:right;
+	margin-top:7.8em;
+	margin-left:26.8em;
 }
 
 .room_info_notch {
@@ -1485,10 +1522,10 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 }
 
 #room_selector_menu{
-	position:relative;
+	position:absolute;
 	display:none;
-	margin-top: .9em;
-	width:16.6em;
+	margin-top: 4.9em;
+	width:16.8em;
 	height:auto;
 	float:right;
 }
@@ -1543,6 +1580,17 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 	font-style:normal;
 }
 
+/*###################  Search Button #########################*/
+#search_button{
+	width:100%;
+	height:2em;
+	float:right;
+	background:#f49000;
+	margin-top: 2em;
+	border: 3px solid #ffffff;
+	border-radius:5px;
+	font-size:1.6em;
+}
 }
 
 @media screen and (min-width: 1370px) {
