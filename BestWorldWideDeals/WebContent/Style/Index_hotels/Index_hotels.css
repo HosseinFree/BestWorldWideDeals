@@ -336,7 +336,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 
 #search_div{
    width: 85%;
-   height: 30em;
+   height: 31em;
    margin-top: 2em;	
 }
 
@@ -631,7 +631,7 @@ body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;backg
 /*###################  Search Button #########################*/
 #search_button{
 	height:2.4em;
-	margin-top: 2.1em;
+	margin-top: 2.6em;
 	border: 3px solid #ffffff;
 	border-radius:5px;
 	font-size:1em;

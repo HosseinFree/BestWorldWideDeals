@@ -1,13 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	  
 <fmt:requestEncoding value="UTF-8" />
 <html>
 <c:set var="loc" value="en_GB"/>
+<c:set var="lan_val" value="EN"/>
 <c:if test="${!(empty param.locale)}">
    <c:set var="loc" value="${param.locale}"/>
 </c:if>
+<c:if test="${!(empty param.lan_val)}">
+   <c:set var="lan_val" value="${param.lan_val}"/>
+</c:if>
+
 <fmt:setLocale value="${loc}"/>
 
 <head>
@@ -16,7 +21,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels.css">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels_datepicker.css">
+<script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/internatinal_dates.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/datepicker.js"></script>
+
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/Index_hotels.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/room_type.js"></script>
 <title>Insert title here</title>
@@ -25,6 +32,7 @@
     <div id="header_div">
        <jsp:include page="./Jsp/Header.jsp"/>
     </div>   
+    <input type="hidden" value="${lan_val}" id="language_val"/>
    	<div id="content_wrapper">
    	   <div id="top_content">
    	       <div id="search_div">

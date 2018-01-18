@@ -1,3 +1,12 @@
+languages = {'EN': {'monthNames':['January','February','March','April','May','June','July','August','September','October','November','December'],
+					'daysAbbreviation':['Mo','Tu','We','Th','Fr','Sa','Su']},
+			  'FR': {'monthNames':['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+						'daysAbbreviation':['De','Lu','Ma','Me','Je','Ve','Sa']},
+			}
+
+
+/*#############################################################*/
+
 today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 global_startDate  = today;
 global_endDate    = new Date(today.getFullYear(),today.getMonth(), today.getDate() + 1);
@@ -5,11 +14,31 @@ is_from_date_window_open = false;
 is_to_date_window_open = false;
 is_small_from_date_window_open = false;
 is_small_to_date_window_open = false;
-
 var MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-
+var lan_val = $("#language_val").val();
 global_months     = 2;
+dayNames = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+];
+weekDays = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+];
+
+
+
+/*
 monthNames = [
             'January',
             'February',
@@ -24,24 +53,6 @@ monthNames = [
             'November',
             'December'
         ];
-dayNames = [
-            'Sunday',
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday'
-        ];
-weekDays = [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday',
-        ];
 daysAbbreviation = [
             'Mo',
             'Tu',
@@ -51,6 +62,8 @@ daysAbbreviation = [
             'Sa',
             'Su'
         ];
+
+*/
 
 current_from_date = {
 	 day:global_startDate.getDate(),
@@ -64,17 +77,15 @@ current_to_date = {
 		 year:global_endDate.getFullYear()
 };
 
-$( document ).ready(function() {
-	
-	end_value = global_endDate.getDate() + ' ' + monthNames[global_endDate.getMonth()] + ' ' + global_endDate.getFullYear();
-	start_value = global_startDate.getDate() + ' ' + monthNames[global_startDate.getMonth()] + ' ' + global_startDate.getFullYear();
+$(document ).ready(function() {
+	end_value = global_endDate.getDate() + ' ' + languages[lan_val]['monthNames'][global_endDate.getMonth()] + ' ' + global_endDate.getFullYear();
+	start_value = global_startDate.getDate() + ' ' + languages[lan_val]['monthNames'][global_startDate.getMonth()] + ' ' + global_startDate.getFullYear();
 	$("#to_date_val").html(end_value);
 	$("#small_to_date_val").html(end_value);
     
     $("#from_date_val").html(start_value);
     $("#small_from_date_val").html(start_value);
 });
-
 
 $(window).resize(function() {
       if(is_small_from_date_window_open){
@@ -170,20 +181,14 @@ document.addEventListener('click',function(elem) {
    }    
 });
 
-/*
- * 
- * 
- */
+
 function get_num_days(from,to){
 	var utc1 = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
 	var utc2 = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
 	return Math.round((utc2 - utc1) / MS_PER_DAY);
 }
 
-/*
- * 
- * 
- */
+
 function getWeekOfMonth(date) {
             var day = date.getDate()
             day-=(date.getDay()==0?6:date.getDay()-1);//get monday of vm week
@@ -195,17 +200,15 @@ function getWeekOfMonth(date) {
             return prefixes[0 | (day) / 7];
 };
 
-/*
- * 
- * 
- */
+
 function getMonts(startDate,months) {
 	var months_list = [];
     for (var i = 0; i < months; i++) {
         var date = new Date(startDate.getFullYear(), startDate.getMonth() + i, 1);
         var month = {
-            name: this.monthNames[date.getMonth()],
+            name: languages['EN']['monthNames'][date.getMonth()],
             year: date.getFullYear(),
+            inter_name:languages[lan_val]['monthNames'][date.getMonth()],
             weeks: [],
             is_first: false,
             is_last:false
@@ -239,10 +242,7 @@ function getMonts(startDate,months) {
 }
 
 
-/*
- * 
- * 
- */
+
 function toggleClass(element, className){
     if (!element || !className){
         return;
@@ -257,26 +257,19 @@ function toggleClass(element, className){
     element.className = classString;
 }
 
-/*
- * 
- * 
- */
+
 function updateCalendar(element,startDate,months,type,show_small,show_regular){
 	var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth() -1, 1);
 	startDate = startDate.getTime() >= today.getTime() ? startDate : today;
-	
-    calendar = getMonts(startDate,months);
+	calendar = getMonts(startDate,months);
     renderCalendar(calendar, element,months,type,show_small,show_regular);
-    
+        
 }
 
-/*
- * 
- * 
- */
+
 function showCalendar(element,type,startDate){
 	
-    if(element === "from_date_input"){
+	if(element === "from_date_input"){
     	if (type == 'regular'){
     		var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth()-1, 1);
      	   if (is_from_date_window_open){
@@ -356,16 +349,12 @@ function showCalendar(element,type,startDate){
 	}
 }
 
-/*
- * 
- * 
- * 
- */
+
 function setDate(element,date){
         
     if( element ===  "from_date_input" ){
     	
-    	value = date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear();
+    	value = date.getDate() + ' ' + languages[lan_val]['monthNames'][date.getMonth()] + ' ' + date.getFullYear();
        	current_from_date.day = date.getDate();
     	current_from_date.month = date.getMonth();
     	current_from_date.year = date.getFullYear();
@@ -392,12 +381,12 @@ function setDate(element,date){
         if(global_startDate.getTime() >= global_endDate.getTime()){
         	global_endDate = new Date(date.getFullYear(),date.getMonth(), date.getDate() + 1);
         }
-        end_value = global_endDate.getDate() + ' ' + monthNames[global_endDate.getMonth()] + ' ' + global_endDate.getFullYear();
+        end_value = global_endDate.getDate() + ' ' + languages[lan_val]['monthNames'][global_endDate.getMonth()] + ' ' + global_endDate.getFullYear();
         document.getElementById("to_date_val").innerHTML = end_value;
         document.getElementById("small_to_date_val").innerHTML = end_value;
         $("#num_nights").html(get_num_days(global_startDate,global_endDate)+" Nights Stay");
     }else{
-    	value = date.getDate() + ' ' + monthNames[date.getMonth()] + ' ' + date.getFullYear();
+    	value = date.getDate() + ' ' + languages[lan_val]['monthNames'][date.getMonth()] + ' ' + date.getFullYear();
         global_endDate = date;
         current_to_date.day = date.getDate();
         current_to_date.month = date.getMonth();
@@ -424,19 +413,15 @@ function setDate(element,date){
     	if(global_startDate.getTime() >= global_endDate.getTime()){
     	     global_startDate = new Date(date.getFullYear(),date.getMonth(), date.getDate() -1);
         }
-    	start_value = global_startDate.getDate() + ' ' + monthNames[global_startDate.getMonth()] + ' ' + global_startDate.getFullYear();
+    	start_value = global_startDate.getDate() + ' ' + languages[lan_val]['monthNames'][global_startDate.getMonth()] + ' ' + global_startDate.getFullYear();
         document.getElementById("from_date_val").innerHTML = start_value;
         document.getElementById("small_from_date_val").innerHTML = start_value;
         $("#num_nights").html(get_num_days(global_startDate,global_endDate)+" Nights Stay");
       }
 }
 
-/*
- * 
- * 
- */
+
 function renderCalendar(calendar, element,months,type,show_small,show_regular) {
-	
 	var widget = document.createElement('div');
 	if (type == 'regular'){
         widget.className = 'calendar';
@@ -451,7 +436,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
         var name = document.createElement('div');
         name.className = "month_title";
         $(name).html(
-                month.name + ' ' + month.year
+                month.inter_name + ' ' + month.year
         );
        
         if(month.is_first){
@@ -504,7 +489,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
 
         var tableHead = document.createElement('thead');
         var tr =  document.createElement('tr');
-        daysAbbreviation.forEach(function(abb) {
+        languages[lan_val]['daysAbbreviation'].forEach(function(abb) {
             var td = document.createElement('td');
             td.appendChild(
                 document.createTextNode(abb)
@@ -672,4 +657,4 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
             updateCalendar(element, startDate,1,type,show_small,show_regular);
          });
     }
-} 
+}
