@@ -21,11 +21,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels.css">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels_datepicker.css">
-<script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/internatinal_dates.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/datepicker.js"></script>
-
+<script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/google_place.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/Index_hotels.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/room_type.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -34,11 +34,22 @@
     </div>   
     <input type="hidden" value="${lan_val}" id="language_val"/>
    	<div id="content_wrapper">
+   	   <input type="hidden" id="hidd_content"/>
+   	   
+   	   <!--  Values of search form to be stored -->
+   	   <input type="hidden" id="destination_coord"/>
+   	   <input type="hidden" id="room_type_inp"/>
+   	   <input type="hidden" id="from_date_inp"/>
+   	   <input type="hidden" id="to_date_inp"/>
+   	   <input type="hidden" id="num_of_rooms"/>
+   	   
+   	   
+   	   <!-- ###############################  Start Top content ################################################## -->
    	   <div id="top_content">
    	       <div id="search_div">
 		       <div id="search_tab">
 					<div id="search_label" class="search_labels"><fmt:message key="travelingTo"/></div>
-						<input type="text" id="search_input" class="search_text_inputs" />
+						<input type="text" id="search_input" class="search_text_inputs" onkeyup="initAutocomplete()" placeholder="<fmt:message key="travelSearchInput"/>"/>
 					      <div id="date_room_wrapper">
 						       <div class="date_room_divs date_divs">  
 						           <div id="check_in_label" class="search_labels">
@@ -90,15 +101,12 @@
 							 <div id="room_selector_menu" onclick=""  class="room_callout room_border_callout">
 						         <b class="room_border_notch room_notch"></b><b class="room_notch"></b>
 						        					         				         
-						         <div id="single_div" class="room_type_menu_divs" onclick="replace_room_selector_val('./Images/Index_hotels/single.png',this.firstChild.innerHTML);deactivate_all_multiple_rooms()"><i><fmt:message key="signleRoom"/></i></div>
-						         <div id="double_div" class="room_type_menu_divs" onclick="replace_room_selector_val('./Images/Index_hotels/double.png',this.firstChild.innerHTML);deactivate_all_multiple_rooms()"><i><fmt:message key="doubleRoom"/></i></div>
-						         <div id="family_div" class="room_type_menu_divs" onclick="activate_multiple_room('family')"><i><fmt:message key="familyRoom"/></i></div>
-						         <div id="multiple_div" class="room_type_menu_divs" onclick="activate_multiple_room('multiple')"><i><fmt:message key="multipleRoom"/></i></div>
+						         <div id="single_div" class="room_type_menu_divs" onclick="replace_room_selector_val('./Images/Index_hotels/single.png',this.firstChild.innerHTML);deactivate_all_multiple_rooms();update_room_type_val('1')"><i><fmt:message key="signleRoom"/></i></div>
+						         <div id="double_div" class="room_type_menu_divs" onclick="replace_room_selector_val('./Images/Index_hotels/double.png',this.firstChild.innerHTML);deactivate_all_multiple_rooms();update_room_type_val('2')"><i><fmt:message key="doubleRoom"/></i></div>
+						         <div id="family_div" class="room_type_menu_divs" onclick="activate_multiple_room('family','3')"><i><fmt:message key="familyRoom"/></i></div>
+						         <div id="multiple_div" class="room_type_menu_divs" onclick="activate_multiple_room('multiple','4')"><i><fmt:message key="multipleRoom"/></i></div>
 						    </div>
-							       
-							
-							     
-							     
+							 
 						    </div> <!-- ######################################## -->
 						    
 						    <div id="rooms_info_menu" class="room_info_callout room_info_border_callout">
@@ -133,7 +141,7 @@
 										              </div>
 										              
 										              <div id="room1_children_age_div" class="rooms_info_inner_divs children_age_div">
-										                      <div class="room_search_labels children_age_labels" id="room1_children_age_label">Children's Age</div>
+										                      <div class="room_search_labels children_age_labels" id="room1_children_age_label"><fmt:message key="childrenAge"/></div>
 				                                              <select id="room1_child1" class="counters_div child_ages" > 
 															      <option selected>0</option><option>1</option><option>2</option><option>3</option>
 															      <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
@@ -197,7 +205,7 @@
 										              </div>
 										              
 										              <div id="room2_children_age_div" class="rooms_info_inner_divs children_age_div">
-										                      <div class="room_search_labels children_age_labels" id="room2_children_age_label">Children's Age</div>
+										                      <div class="room_search_labels children_age_labels" id="room2_children_age_label"><fmt:message key="childrenAge"/></div>
 				                                              <select id="room2_child1" class="counters_div child_ages"> 
 															      <option selected>0</option><option>1</option><option>2</option><option>3</option>
 															      <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
@@ -260,7 +268,7 @@
 										              </div>
 										              
 										              <div id="room3_children_age_div" class="rooms_info_inner_divs children_age_div">
-										                      <div class="room_search_labels children_age_labels" id="room3_children_age_label">Children's Age</div>
+										                      <div class="room_search_labels children_age_labels" id="room3_children_age_label"><fmt:message key="childrenAge"/></div>
 				                                              <select id="room3_child1" class="counters_div child_ages"> 
 															      <option selected>0</option><option>1</option><option>2</option><option>3</option>
 															      <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
@@ -323,7 +331,7 @@
 										              </div>
 										              
 										              <div id="room4_children_age_div" class="rooms_info_inner_divs children_age_div">
-										                      <div class="room_search_labels children_age_labels" id="room4_children_age_label">Children's Age</div>
+										                      <div class="room_search_labels children_age_labels" id="room4_children_age_label"><fmt:message key="childrenAge"/></div>
 				                                              <select id="room4_child1" class="counters_div child_ages"> 
 															      <option selected>0</option><option>1</option><option>2</option><option>3</option>
 															      <option>4</option><option>5</option><option>6</option><option>7</option><option>8</option>
@@ -362,22 +370,29 @@
 										      <tr>
 										        <td id="add_butt_td"> 
 										    		<button id="add_butt" class="add_rem_butts" onclick="activate_next_room()">
-										      			Add
+										      			<fmt:message key="add"/>
 										    		</button>
 										    	</td>
 										    	<td id="rem_butt_td" align="center">	
 												    <button id="rem_butt" class="add_rem_butts" onclick="deactivate_last_room()">
-												      Remove
+												      <fmt:message key="remove"/>
 												    </button>
 												</td>
 												<td>
-												    <button id="confirm_butt" class="add_rem_butts">
-										              Confirm
+												    <button id="family_confirm_butt" class="add_rem_butts confirm_butt">
+										              <fmt:message key="confirm"/>
+										            </button>
+										            <button id="multiple_confirm_butt" class="add_rem_butts confirm_butt">
+										              <fmt:message key="confirm"/>
 										            </button>
 										        </td>
-										       </tr>     
+										       </tr>
 										    </table>
-								          </div> 
+								          </div>
+								          <div id="room_close" onclick="close_room_info()"> 
+										        Close
+										  </div>
+										          
 									</div> <!-- End of rooms_info -->
 							</div>	<!-- End of rooms_info_menu -->
 							</div>  
@@ -392,12 +407,12 @@
 							   <fmt:message key="search"/>
 							</button>
 			  </div>	<!-- End of search_tab -->	
-			  
-      	 </div> <!-- End of search div -->
-      </div><!-- end of top_content div-->	 
+		 </div> <!-- End of search div -->
+      </div><!-- end of top_content div-->
+      <!-- ##################################### End Top content ############################################### -->	 
 	</div> <!-- End of content wrapper -->
 	<jsp:include page="./Jsp/Footer.jsp"></jsp:include>
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZKLZfJQ-iqPcr4Cu5SWBSHRtaSWbS8pM&&language=${lan_val}&libraries=places" async defer></script>
 </body>
 </fmt:bundle>
 

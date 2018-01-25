@@ -53,6 +53,14 @@ document.addEventListener('click',function(elem) {
 	}	
 });
 
+$("#family_confirm_butt").click(function(){
+	confirm_room_num('./Images/Index_hotels/family.png','family','3')
+});
+
+$("#multiple_confirm_butt").click(function(){
+	confirm_room_num('./Images/Index_hotels/family.png','multiple','4')
+});
+
 
 document.addEventListener('click',function(elem) {
     if( is_room_num_menu_open ){
@@ -97,7 +105,6 @@ function replace_room_selector_val(background_img,text_val){
 	$('#room_selector').css('background-image','url("'+background_img+'")');
 }
 
-
 /*
  * 
  * 
@@ -110,11 +117,20 @@ function activate_multiple_room(elem){
 	is_room_num_menu_open = true;
 	$("#rooms_info_menu").show();
 	$("#room1_info").show();
+	$("#add_butt_td").show();
 	$("#add_butt").show();
-	$("#confirm_butt").show();
-	$("#confirm_butt").click(function(){
-	    confirm_room_num('./Images/Index_hotels/'+elem+'.png',elem)
-    });
+	
+	if(elem === "family"){
+	     $("#family_confirm_butt").show();
+	     $("#multiple_confirm_butt").hide();
+	}
+	
+	if(elem === "multiple"){
+	     $("#family_confirm_butt").hide();
+	     $("#multiple_confirm_butt").show();
+	}
+	
+	
 }
 
 
@@ -142,7 +158,7 @@ function deactivate_all_multiple_rooms(){
  * 
  */
 function activate_next_room(){
-	if(the_last_room_activated < 4 ){
+if(the_last_room_activated < 4 ){
 		the_last_room_activated = the_last_room_activated + 1;
 		$("#room"+the_last_room_activated+"_info").show();
 		
@@ -154,10 +170,8 @@ function activate_next_room(){
 		if(the_last_room_activated == 2){
 			$("#rem_butt").show();
 		}
-	}	
+	}
 }
-
-
 
 /*
  * 
@@ -182,15 +196,14 @@ function deactivate_last_room(){
 	}	
 }
 
-
 /*
  * 
  * 
  * 
  */
 function update_child_ages(elem){
-	num_of_childs = parseInt($(elem).val());
-	room_num = $(elem).attr('id').split("_")[0];
+	var num_of_childs = parseInt($(elem).val());
+	var room_num = $(elem).attr('id').split("_")[0];
 	
 	for(i=1;i<=4;i++){
 		if ( i > num_of_childs){
@@ -209,8 +222,8 @@ function update_child_ages(elem){
  * 
  */
 function deactivate_all_child_ages(elem){
-	num_of_childs = parseInt($(elem).val());
-	room_num = $(elem).attr('id').split("_")[0];
+	var num_of_childs = parseInt($(elem).val());
+	var room_num = $(elem).attr('id').split("_")[0];
 	
 	for(i=1;i<=4;i++){
 		$("#"+room_num+"_child"+i).val(0);	
@@ -226,8 +239,8 @@ function deactivate_all_child_ages(elem){
  * 
  */
 function activate_num_child_ages(elem){
-	num_of_childs = parseInt($(elem).val());
-	room_num = $(elem).attr('id').split("_")[0];
+	var num_of_childs = parseInt($(elem).val());
+	var room_num = $(elem).attr('id').split("_")[0];
 	if( num_of_childs > 0  ){
 		$("#"+room_num+"_children_age_label").show();
 		for(i=1;i<=num_of_childs;i++){
@@ -247,17 +260,41 @@ function handle_change_child_num(elem){
 	activate_num_child_ages(elem);
 }
 
+/*
+ * 
+ * 
+ * 
+ */
+function confirm_room_num(logo_img,elem_text_val,type_num){
+	text_val = document.getElementById(elem_text_val+"_div").firstChild.innerHTML;
+	replace_room_selector_val(logo_img,text_val);
+	update_room_type_val(type_num);
+	is_room_num_menu_open = false;
+    $('#room_selector').css('border','2px solid #dedede');
+    $('#room_selector').css('box-shadow', 'none');
+    $("#"+elem_text_val+"_confirm_butt").hide();
+    $('#rooms_info_menu').hide();
+    $("#num_of_rooms").attr("value",the_last_room_activated);
+}	   
 
 /*
  * 
  * 
  * 
  */
-function confirm_room_num(logo_img,elem_text_val){
-	text_val = document.getElementById(elem_text_val+"_div").firstChild.innerHTML;
-	replace_room_selector_val(logo_img,text_val);
+function close_room_info(){
 	is_room_num_menu_open = false;
     $('#room_selector').css('border','2px solid #dedede');
     $('#room_selector').css('box-shadow', 'none');	
     $('#rooms_info_menu').hide();
-}	   
+}
+
+/*
+ * 
+ * 
+ * 
+*/
+function update_room_type_val(type_num){
+   $("#room_type_inp").attr("value",type_num);
+}
+   

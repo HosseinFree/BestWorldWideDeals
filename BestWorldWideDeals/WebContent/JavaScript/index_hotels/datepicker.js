@@ -5,7 +5,7 @@ languages = {'EN': {'monthNames':['January','February','March','April','May','Ju
 			}
 
 
-/*#############################################################*/
+/*#############################################################################################################################################*/
 
 today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 global_startDate  = today;
@@ -36,35 +36,6 @@ weekDays = [
     'Sunday',
 ];
 
-
-
-/*
-monthNames = [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        ];
-daysAbbreviation = [
-            'Mo',
-            'Tu',
-            'We',
-            'Th',
-            'Fr',
-            'Sa',
-            'Su'
-        ];
-
-*/
-
 current_from_date = {
 	 day:global_startDate.getDate(),
 	 month:global_startDate.getMonth(),
@@ -85,6 +56,9 @@ $(document ).ready(function() {
     
     $("#from_date_val").html(start_value);
     $("#small_from_date_val").html(start_value);
+    
+    $("#from_date_inp").attr("value",global_startDate.getDate()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getFullYear()); 
+	$("#to_date_inp").attr("value",global_endDate.getDate()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getFullYear()); 
 });
 
 $(window).resize(function() {
@@ -93,6 +67,7 @@ $(window).resize(function() {
 		  $('#from_date_input').css('box-shadow', 'none');
     	  is_small_from_date_window_open = false;
     	  document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+    	  document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
     	  $('#small_from_calendar').hide();
       }
       
@@ -101,6 +76,7 @@ $(window).resize(function() {
 		  $('#to_date_input').css('box-shadow', 'none');
     	  is_small_to_date_window_open = false;
     	  document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+    	  document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
     	  $('#small_to_calendar').hide();
       }
       
@@ -109,6 +85,7 @@ $(window).resize(function() {
 		  $('#from_date_input').css('box-shadow', 'none');
     	  is_from_date_window_open = false;
     	  document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+    	  document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
     	  $('#from_calendar').hide();
       }
       
@@ -117,6 +94,7 @@ $(window).resize(function() {
 		  $('#to_date_input').css('box-shadow', 'none');
     	  is_to_date_window_open = false;
     	  document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+    	  document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
     	  $('#to_calendar').hide();
       }
       
@@ -133,7 +111,9 @@ document.addEventListener('click',function(elem) {
 	       $('#to_date_input').css('box-shadow', 'none');
 		}
 	    is_to_date_window_open = false;
-	    document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+	    $("div").remove("#to_cal_div");
+	    document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
+	    //document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
 	    $("#to_calendar").hide();
     }    
 });
@@ -147,7 +127,9 @@ document.addEventListener('click',function(elem) {
 	       $('#from_date_input').css('box-shadow', 'none');
 		}   
 		is_from_date_window_open = false;
-		document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+		$("div").remove("#from_cal_div");
+		document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
+		//document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
 		$("#from_calendar").hide();
     }    
 });
@@ -162,7 +144,9 @@ document.addEventListener('click',function(elem) {
 	       $('#from_date_input').css('box-shadow', 'none');
 		}   
 	    is_small_from_date_window_open = false;
-	    document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+	    $("div").remove("#small_from_cal_div");
+	    document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
+	    //document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
 	    $("#small_from_calendar").hide();
      }    
 });
@@ -176,19 +160,27 @@ document.addEventListener('click',function(elem) {
 	       $('#to_date_input').css('box-shadow', 'none');
 		}   
 	    is_small_to_date_window_open = false;
-	    document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+	    $("div").remove("#small_to_cal_div");
+	    document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
+	    //document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
 	    $("#small_to_calendar").hide();
    }    
 });
 
-
+/*
+ * 
+ * 
+ */
 function get_num_days(from,to){
 	var utc1 = Date.UTC(from.getFullYear(), from.getMonth(), from.getDate());
 	var utc2 = Date.UTC(to.getFullYear(), to.getMonth(), to.getDate());
 	return Math.round((utc2 - utc1) / MS_PER_DAY);
 }
 
-
+/*
+ * 
+ * 
+ */
 function getWeekOfMonth(date) {
             var day = date.getDate()
             day-=(date.getDay()==0?6:date.getDay()-1);//get monday of vm week
@@ -200,7 +192,10 @@ function getWeekOfMonth(date) {
             return prefixes[0 | (day) / 7];
 };
 
-
+/*
+ * 
+ * 
+ */
 function getMonts(startDate,months) {
 	var months_list = [];
     for (var i = 0; i < months; i++) {
@@ -242,7 +237,10 @@ function getMonts(startDate,months) {
 }
 
 
-
+/*
+ * 
+ * 
+ */
 function toggleClass(element, className){
     if (!element || !className){
         return;
@@ -257,7 +255,10 @@ function toggleClass(element, className){
     element.className = classString;
 }
 
-
+/*
+ * 
+ * 
+ */
 function updateCalendar(element,startDate,months,type,show_small,show_regular){
 	var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth() -1, 1);
 	startDate = startDate.getTime() >= today.getTime() ? startDate : today;
@@ -266,7 +267,10 @@ function updateCalendar(element,startDate,months,type,show_small,show_regular){
         
 }
 
-
+/*
+ * 
+ * 
+ */
 function showCalendar(element,type,startDate){
 	
 	if(element === "from_date_input"){
@@ -274,6 +278,7 @@ function showCalendar(element,type,startDate){
     		var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth()-1, 1);
      	   if (is_from_date_window_open){
 		      document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+		      document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
 		      $('#from_date_input').css('border','2px solid #dedede');
 			  $('#from_date_input').css('box-shadow', 'none');
 		      $('#from_calendar').hide();
@@ -290,6 +295,7 @@ function showCalendar(element,type,startDate){
     		  var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth(), 1);
 	          if (is_small_from_date_window_open){
 		          document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+		          document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
 		          $('#from_date_input').css('border','2px solid #dedede');
 				  $('#from_date_input').css('box-shadow', 'none');
 			      $('#small_from_calendar').hide();
@@ -309,6 +315,7 @@ function showCalendar(element,type,startDate){
 			var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth()-1, 1);
 		    if (is_to_date_window_open){	 
                  document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+                 document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
                  $('#to_date_input').css('border','2px solid #dedede');
 				 $('#to_date_input').css('box-shadow', 'none');
 			     $('#to_calendar').hide();
@@ -325,6 +332,7 @@ function showCalendar(element,type,startDate){
 			var startDate = startDate ? startDate : element === "from_date_input" ? global_startDate : new Date(global_endDate.getFullYear() , global_endDate.getMonth(), 1);
 	          if (is_small_to_date_window_open){
 		          document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+		          document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
 		          $('#to_date_input').css('border','2px solid #dedede');
 			      $('#to_date_input').css('box-shadow', 'none');
 			      $('#small_to_calendar').hide();
@@ -349,11 +357,13 @@ function showCalendar(element,type,startDate){
 	}
 }
 
-
+/*
+ * 
+ * 
+ */
 function setDate(element,date){
         
     if( element ===  "from_date_input" ){
-    	
     	value = date.getDate() + ' ' + languages[lan_val]['monthNames'][date.getMonth()] + ' ' + date.getFullYear();
        	current_from_date.day = date.getDate();
     	current_from_date.month = date.getMonth();
@@ -361,9 +371,10 @@ function setDate(element,date){
     	global_startDate = date;
     	document.getElementById("from_date_val").innerHTML = value;
     	document.getElementById("small_from_date_val").innerHTML = value;
-    	
+    	    	
     	if(is_from_date_window_open){
     		document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+    		document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
     		$('#from_date_input').css('border','2px solid #dedede');
 			$('#from_date_input').css('box-shadow', 'none');
 			is_from_date_window_open = false;
@@ -372,6 +383,7 @@ function setDate(element,date){
     	
     	if(is_small_from_date_window_open){
     		document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+    		document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
     		$('#from_date_input').css('border','2px solid #dedede');
 			$('#from_date_input').css('box-shadow', 'none');
 			is_small_from_date_window_open = false;
@@ -393,9 +405,10 @@ function setDate(element,date){
         current_to_date.year = date.getFullYear();
     	document.getElementById("to_date_val").innerHTML = value;
     	document.getElementById("small_to_date_val").innerHTML = value;
-    	
+    	    	
     	if(is_to_date_window_open){
     		document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+    		document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
     		$('#to_date_input').css('border','2px solid #dedede');
 			$('#to_date_input').css('box-shadow', 'none');
     		is_to_date_window_open = false;
@@ -404,6 +417,7 @@ function setDate(element,date){
     	
     	if(is_small_to_date_window_open){
     		document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+    		document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
     		$('#to_date_input').css('border','2px solid #dedede');
 			$('#to_date_input').css('box-shadow', 'none');
     		is_small_to_date_window_open = false;
@@ -418,9 +432,17 @@ function setDate(element,date){
         document.getElementById("small_from_date_val").innerHTML = start_value;
         $("#num_nights").html(get_num_days(global_startDate,global_endDate)+" Nights Stay");
       }
+    
+    $("#from_date_inp").attr("value",global_startDate.getDate()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getFullYear()); 
+	$("#to_date_inp").attr("value",global_endDate.getDate()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getFullYear()); 
+	
 }
 
 
+/*
+ * 
+ * 
+ */
 function renderCalendar(calendar, element,months,type,show_small,show_regular) {
 	var widget = document.createElement('div');
 	if (type == 'regular'){
@@ -550,7 +572,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
 
             tbody.appendChild(tr);
         });
-
+        
         table.appendChild(tbody);
         monthDiv.appendChild(table);
         widget.appendChild(monthDiv);
@@ -558,15 +580,39 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
     });
 
     
+    
+    var close_table = document.createElement('table');
+    var tbody = document.createElement('tbody');
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    close_table.className = "close_table";
+    tr.appendChild(td);
+    $(td).attr("align","right");
+    td.innerHTML = "<div id='close_link'>Close</div>";
+    tbody.appendChild(tr);
+    close_table.appendChild(tbody);
+  
+    
+    
+    
     if(element === "from_date_input" && type ==='regular'){
      	widget.id = "from_cal_div";
     	document.getElementById("from_calendar").appendChild(widget);
     	if(show_regular){
-    	   $('#from_calendar').show();
+    		close_table.id = "from_close_table";
+    		
+    		$('#from_calendar').append(close_table);
+    		$('#from_calendar').show();
+    		$("#close_link").click(function(){
+    			document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+ 		        document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
+ 		        $("#from_calendar").hide();
+    		});
     	}   
         document.getElementById("from_right_nav").addEventListener('click', function(e){
     		    if(element === "from_date_input"){
     		       document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+    		       document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
     		    }
     		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
                 var startDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -576,12 +622,12 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
         document.getElementById("from_left_nav").addEventListener('click', function(e){
         	    if(element === "from_date_input"){
     		        document.getElementById("from_calendar").removeChild(document.getElementById("from_cal_div"));
+    		        document.getElementById("from_calendar").removeChild(document.getElementById("from_close_table"));
     		    }
     		var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() - 1, 1);
             updateCalendar(element, startDate,months,type,show_small,show_regular);
-        	
-            });
+           });
       }
     
      if(element === "from_date_input" && type ==='small'){
@@ -589,12 +635,20 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
     	document.getElementById("small_from_calendar").appendChild(widget);
   
     	if(show_small){
+    		close_table.id = "from_close_table";
+    		$('#small_from_calendar').append(close_table);
     	    $('#small_from_calendar').show();
+    	    $("#close_link").click(function(){
+    	    	document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+ 		        document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
+ 		        $("#small_from_calendar").hide();
+   		    });
     	}
     	
         document.getElementById("small_from_right_nav").addEventListener('click', function(e){
     		    if(element === "from_date_input"){
     		       document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+    		       document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
     		    }
     		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
                 var startDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -604,6 +658,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
         document.getElementById("small_from_left_nav").addEventListener('click', function(e){
         	    if(element === "from_date_input"){
     		        document.getElementById("small_from_calendar").removeChild(document.getElementById("small_from_cal_div"));
+    		        document.getElementById("small_from_calendar").removeChild(document.getElementById("from_close_table"));
     		    }
     		var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() - 1, 1);
@@ -615,10 +670,21 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
     if(element === "to_date_input" && type ==='regular'){
     	widget.id = "to_cal_div";
     	document.getElementById("to_calendar").appendChild(widget);
-        $('#to_calendar').show();
+    	
+    	if(show_regular){
+    	   close_table.id = "to_close_table";
+    	   $('#to_calendar').append(close_table);
+    	   $('#to_calendar').show();
+    	   $("#close_link").click(function(){
+    		   document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+		       document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
+		       $("#to_calendar").hide();
+ 		   });
+    	}   
 	    document.getElementById("to_right_nav").addEventListener('click', function(e){
 	    	if(element === "to_date_input"){
 		         document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+		         document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
 			}
 		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -628,6 +694,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
 	    document.getElementById("to_left_nav").addEventListener('click', function(e){
 	    	if(element === "to_date_input"){
 		       document.getElementById("to_calendar").removeChild(document.getElementById("to_cal_div"));
+		       document.getElementById("to_calendar").removeChild(document.getElementById("to_close_table"));
 			}
 		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() - 1, 1);
@@ -638,10 +705,23 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
     if(element === "to_date_input" && type ==='small'){
     	widget.id = "small_to_cal_div";
     	document.getElementById("small_to_calendar").appendChild(widget);
+    	close_table.id = "to_close_table";
+    	$("#close_link").click(function(){
+			close_calendare("small_to_calendar");
+		});
+    	
+		$('#small_to_calendar').append(close_table);
         $('#small_to_calendar').show();
+        $("#close_link").click(function(){
+        	document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+		    document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
+		    $("#small_to_calendar").hide();
+		});
+        
 	    document.getElementById("small_to_right_nav").addEventListener('click', function(e){
 	    	if(element === "to_date_input"){
 		         document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+		         document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
 			}
 		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
@@ -651,6 +731,7 @@ function renderCalendar(calendar, element,months,type,show_small,show_regular) {
 	    document.getElementById("small_to_left_nav").addEventListener('click', function(e){
 	    	if(element === "to_date_input"){
 		       document.getElementById("small_to_calendar").removeChild(document.getElementById("small_to_cal_div"));
+		       document.getElementById("small_to_calendar").removeChild(document.getElementById("to_close_table"));
 			}
 		    var date = new Date(1 + ' ' + calendar[0].name + ' ' + calendar[0].year);
             var startDate = new Date(date.getFullYear(), date.getMonth() - 1, 1);

@@ -5,6 +5,9 @@ html, body {
 	padding: 0;
 }
 
+#footer_wrapper {
+    border-top:5px solid #f49000;
+}	
 
 #footer_top_div {
 	position: relative;
