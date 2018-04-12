@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 var is_account_menu_open = false;
 var is_language_menu_open = false;
 var is_currency_menu_open = false;
@@ -11,9 +10,6 @@ var is_small_language_menu_open = false;
 var is_small_currency_menu_open = false;
 var language_val = 'EN';
 var currency_val = 'CAD';
-
-
-
 
 document.onclick = function(elem) {
 	if (!(  elem.target.id == "account_menu" || elem.target.id == "account_div" || elem.target.id == "acc_arrow") ){
@@ -172,4 +168,8 @@ function set_value(element,value){
 	
 	$('#'+element+'_div').text(value);
 	$('#small_'+element+'_val').text(value);
+}
+
+function show_partners_msg(msg_content){
+	$("body").append($("<div id='partners_add_msg_div'></div>"));
 }

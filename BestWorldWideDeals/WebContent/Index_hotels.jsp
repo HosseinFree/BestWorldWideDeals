@@ -26,7 +26,6 @@
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/Index_hotels.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/index_hotels/room_type.js"></script>
 
-<title>Insert title here</title>
 </head>
 <body>
     <div id="header_div">
@@ -403,7 +402,7 @@
 							     </td>
 							  </tr>
 							</table>
-							<button id="search_button">
+							<button id="search_button" onclick="search_hotels()">
 							   <fmt:message key="search"/>
 							</button>
 			  </div>	<!-- End of search_tab -->	

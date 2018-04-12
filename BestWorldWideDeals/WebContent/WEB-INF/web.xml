@@ -1,13 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>BestWorldWideDeals</display-name>
+  
+  <!-- ###################### -->  
+  
+  <filter>
+    <filter-name>AdminSessionFilter</filter-name>
+    <filter-class>filters.AdminSessionFilter</filter-class>
+  </filter>
+   
+  <filter-mapping>
+    <filter-name>AdminSessionFilter</filter-name>
+    <url-pattern>/Admin/*</url-pattern>
+  </filter-mapping>
+ 
+  <!-- ###################### --> 
+   
+  <filter>
+    <filter-name>AdminLoginFilter</filter-name>
+    <filter-class>filters.AdminLoginFilter</filter-class>
+  </filter>
+  
+   
+  <filter-mapping>
+    <filter-name>AdminLoginFilter</filter-name>
+    <url-pattern>/Admin_Login.jsp</url-pattern>
+  </filter-mapping>
+  
+  <!-- ###################### -->
+  
+  
+  
+  <!--  WELCOME -->
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <servlet>
+    <servlet-name>Register_Email</servlet-name>
+    <servlet-class>welcome.RegisterEmail</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>Register_Email</servlet-name>
+    <url-pattern>/Register_email</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>index.jsp</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>index.jsp</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping> 
+  
+  <!-- END OF WELCOME -->
+  
+  <!-- ###################### Administrative ################################ -->
+  
+  
+  <servlet>
+    <servlet-name>storenewpartnerinfo</servlet-name>
+    <servlet-class>admin.StoreNewPartnerInfo</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>storenewpartnerinfo</servlet-name>
+    <url-pattern>/Admin/store_new_partner_info</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ###################### -->
+  
+  <servlet>
+    <servlet-name>updatepartnerinfo</servlet-name>
+    <servlet-class>admin.UpdatePartnerInfo</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>updatepartnerinfo</servlet-name>
+    <url-pattern>/Admin/update_partner_info</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ###################### -->
+  
+  <servlet>
+    <servlet-name>getpartnerslist</servlet-name>
+    <servlet-class>admin.GetPartnersList</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>getpartnerslist</servlet-name>
+    <url-pattern>/Admin/get_partners_list</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ###################### -->
+  
+  <servlet>
+    <servlet-name>HandleAdminLogin</servlet-name>
+    <servlet-class>admin.HandleAdminLogin</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HandleAdminLogin</servlet-name>
+    <url-pattern>/handle_admin_login</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ###################### -->
+  
+  <servlet>
+    <servlet-name>HandleAdminLogout</servlet-name>
+    <servlet-class>admin.HandleAdminLogout</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HandleAdminLogout</servlet-name>
+    <url-pattern>/handle_admin_logout</url-pattern>
+  </servlet-mapping>
+  
+  <!-- ###################### -->
+  
+  <servlet>
+    <servlet-name>admin_login</servlet-name>
+    <jsp-file>/Admin_Login.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>admin_login</servlet-name>
+    <url-pattern>/Admin_Login</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- ###################### End Of Administrative ################################ -->
+    
+  <servlet>
+    <servlet-name>HotelsSearchResults</servlet-name>
+    <servlet-class>hotels.HotelsSearchServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HotelsSearchResults</servlet-name>
+    <url-pattern>/hotels_search_results</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>Index_hotels</servlet-name>
+    <jsp-file>/Index_hotels.jsp</jsp-file>
+  </servlet>
+   
+  <servlet-mapping>
+    <servlet-name>Index_hotels</servlet-name>
+    <url-pattern>/Test</url-pattern>
+  </servlet-mapping> 
+ 
 </web-app>

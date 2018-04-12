@@ -66,6 +66,7 @@
 			  <li><a href=""><fmt:message key="contactUs"/></a></li>
 			  <li><a href=""><fmt:message key="termsofUse"/></a></li>
 			  <li><a href=""><fmt:message key="privacyPolicy"/></a></li>
+			  <li><a href="Admin_Login.jsp"><fmt:message key="admin"/></a></li>
 			  <li><span onclick="create_report()"><fmt:message key="reportaProblem"/></span></li>
 		   </ul>
 		   <p>&#169;

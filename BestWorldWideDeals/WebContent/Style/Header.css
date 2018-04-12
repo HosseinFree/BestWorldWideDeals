@@ -208,13 +208,16 @@ html, body {
 
 
 
-
 #large-menu ul li div:hover ~ .arrow_down{
 	border: solid #ffffff;
 	border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
 }
+
+/*#large-menu ul li:hover{
+	color: #ffffff;
+}*/
 
 
 #large-menu ul li div {

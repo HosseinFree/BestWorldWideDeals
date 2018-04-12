@@ -1,0 +1,255 @@
+@CHARSET "ISO-8859-1";
+html {width: 100%; height: 100%; padding: 0; margin: 0;}
+body {width: 100%; height: 100%; position: relative; padding: 0; margin: 0;background: #dedede;}
+
+/* the main div of page under header*/
+body> #Admin_login_content{
+    width: 100%;
+	height: 74%;
+	background: #dedede;
+	min-height: 30em;
+	max-width: 84em;
+	margin: 0 auto;
+}
+
+
+#Admin_logindiv{
+	    width: 30em;
+    	height: auto;
+    	margin-left:auto;
+    	margin-right:auto;
+    	margin-top: 8em;
+        border-radius: 15px;
+        border:2px solid #888888;
+        background: white;
+        padding-bottom:2.6em;
+}
+
+#Admin_error{
+	display:none;
+	border: 1px solid red;
+    background: #ffebe6;	
+    color: red;
+    padding: 5px;
+    padding-bottom: 0px;
+    border-radius: 5px;
+    margin-top: .8em;	
+}
+
+#Admin_error p{
+	font: .9em Arial, Helvetica, sans-serif;
+	padding: 0;
+	width:100%;
+	text-align: center;
+	margin-top: 5px;
+	margin-left: auto; 
+	margin-right:auto;
+}
+
+#Admin_error p a{
+	font: 1em Arial, Helvetica, sans-serif;
+	color: blue;
+	text-decoration: none;
+}
+
+#Admin_error p a:hover{
+	text-decoration: underline;
+}	
+
+#Admin_error p em{
+	font: 1.2em Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#Admin_loginmessage{
+	color:#f49000; 
+	text-align:center;
+	font: 1.2em Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+#Admin_loginform{
+	   height: auto;
+       margin-top: 2.2em ;
+       margin-left:auto;
+       margin-right: auto;
+       width: 25em;
+}
+
+.Admin_login_Inputs{
+	    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;    
+        box-sizing: border-box;
+        
+        -moz-appearance: none;
+	    -webkit-appearance: none;
+	    -ms-appearance: none;
+     	-o-appearance: none;
+    	appearance: none;
+        color: #595959;
+        width: 100%;
+        height: 2.4em;
+        margin: .6em auto;
+        border-radius: 5px;
+        border: 2px solid #dedede;
+        padding-left: 5px;
+        font: 1em Arial, Helvetica, sans-serif;
+         
+}
+
+.Admin_login_Inputs:focus{
+       border: 2px solid #f49000;
+       outline: none;
+}
+
+#Admin_submitbutton{
+	width: 100%;
+	height: 2.2em;
+	font: 1em Arial, Helvetica, sans-serif;
+	transition: background .3s, color .3s;
+	color:white;
+    background: #f49000;
+    margin-top: 1.8em;
+    margin-bottom: 0;
+    border-radius: 5px;
+    border: 2px solid #dedede;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#Admin_topline{
+	 width: 90%; 
+	 margin: -.9em 1.4em; 
+	 border-bottom: 1px solid #dedede;"
+}
+
+
+@media screen and (max-width:799px) and (min-width:480px){
+
+body> #Admin_login_content{
+ 	height: auto;
+ 	padding-bottom: 1em;
+	padding-top: 3em;
+}
+
+#Admin_error p{
+	font: .8em Arial, Helvetica, sans-serif;
+}
+
+#Admin_error p a{
+	font: .9em Arial, Helvetica, sans-serif;
+}
+
+#Admin_error p em{
+	font: 1.1em Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+#Admin_logindiv{
+	width: 25em;
+	height: auto;
+	margin: 4em auto;
+	border-radius: 15px;
+	padding-bottom: .8em;
+}
+
+#Admin_loginmessage{
+	text-align:center;
+	font: 1.2em Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	
+}
+
+#Admin_loginform{
+   height: auto;
+   margin: 2em auto;
+   width: 80%;
+}
+  	
+.Admin_login_Inputs{
+	width: 100%;
+	height: 2.6em;
+	margin: .4em auto;
+	border-radius: 5px;
+	font: .8em Arial, Helvetica, sans-serif;
+}
+
+#Admin_submitbutton{
+    width: 100%;
+    height: 2.4em;
+    font: .85em Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: #f49000;
+    color: white;  
+    
+}
+
+}
+
+
+@media screen and (max-width:479px){
+
+body> #Admin_login_content{
+ 	height: auto;
+ 	padding-bottom: 1em;
+	padding-top: 3em;
+}
+
+#Admin_error p{
+	font: .75em Arial, Helvetica, sans-serif;
+}
+
+#Admin_error p a{
+	font: .9em Arial, Helvetica, sans-serif;
+}
+
+#Admin_error p em{
+	font: 1.05em Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+#Admin_logindiv{
+	width: 80%;
+	height: auto;
+	margin: 4em auto;
+	border-radius: 15px;
+	padding-bottom: .4em;
+}
+
+#Admin_loginmessage{
+	text-align:center;
+	font: 1.1em Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	
+}
+
+#Admin_loginform{
+   height: auto;
+   margin: 2em auto;
+   width: 90%;
+}
+
+.Admin_login_Inputs{
+	width: 100%;
+	height: 2.4em;
+	margin: .4em auto;
+	border-radius: 5px;
+	font: .8em Arial, Helvetica, sans-serif;
+}
+
+#Admin_submitbutton{
+    width: 100%;
+    font: .85em Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: #f49000;
+    color: white; 
+    
+}
+
+
+#Admin_topline{
+	width: 95%;
+	 margin: -.9em auto; 
+}	
+
+}

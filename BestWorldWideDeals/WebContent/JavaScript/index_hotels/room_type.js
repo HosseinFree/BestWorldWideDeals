@@ -6,6 +6,10 @@ var the_last_room_activated = 4 ;
 
 var is_room_type_menu_open = false;
 var is_room_num_menu_open = false;
+$(document).ready(function(){
+	update_room_type_val("2");
+	$("#num_of_rooms").attr("value","1")
+});
 
 $(window).resize(function() {
 
@@ -22,7 +26,6 @@ $(window).resize(function() {
 		deactivate_all_multiple_rooms();
 		$('#rooms_info_menu').hide();
 		is_room_num_menu_open = false;
-		
 	}
 });
 

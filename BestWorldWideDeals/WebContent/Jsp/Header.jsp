@@ -15,26 +15,23 @@
 <fmt:bundle basename="app">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script defer src="${pageContext.request.contextPath}/JavaScript/Header.js"></script>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Style/Header.css">
-
-</head>
-
-
-<title><fmt:message key="appInfo"/></title>
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/Images/welcome/logo.ico"/>
+<title>BestWorldWideDeals</title>
 </head>
 <body>
 
 <div id="header-wrapper">
   <div id="menu_wrapper">
-   <div id="logo-div">
-   </div>
+   <a href="${pageContext.request.contextPath}/Index_hotels.jsp">
+      <div id="logo-div">
+      </div>
+   </a>
 		<div id="menu">
 			<div id="small_menu_icon" class="small_menu_norm"
 				onclick="small_menu_view_switch(this);toggle_small_menu()">
@@ -55,19 +52,19 @@
 							<li class="cur_men_items" onclick="set_value('currency','CAD')"><div>
 									CAD - <span>Canadian Dollar</span>
 								</div></li>
-							<br />
+							<br/>
 							<li class="cur_men_items" onclick="set_value('currency','USD')"><div>
 									USD - <span>US Dollar</span>
 								</div></li>
-							<br />
+							<br/>
 							<li class="cur_men_items" onclick="set_value('currency','EUR')"><div>
 									EUR - <span>Euro</span>
 								</div></li>
-							<br />
+							<br/>
 							<li class="cur_men_items" onclick="set_value('currency','AUD')"><div>
 									AUD - <span>Australian Dollar</span>
 								</div></li>
-							<br />
+							<br/>
 							<li class="cur_men_items" onclick="set_value('currency','GBP')"><div>
 									GBP - <span>British Pound</span>
 								</div></li>
@@ -78,22 +75,22 @@
 						</ul>
 					</div>
 					
-					<c:url value="${pageContext.request.getRequestURL()}" var="frURL">
+					<c:url value="${pageContext.request.requestURL}" var="frURL">
 					   <c:param name="locale" value="fr_FR"/>
 					   <c:param name="lan_val" value="FR"/>
 					</c:url>
 					
-					<c:url value="${pageContext.request.getRequestURL()}" var="enURL">
+					<c:url value="${pageContext.request.requestURL}" var="enURL">
 					   <c:param name="locale" value="en_GB"/>
 					   <c:param name="lan_val" value="EN"/>
 					</c:url>
 					
-					<c:url value="${pageContext.request.getRequestURL()}" var="esURL">
+					<c:url value="${pageContext.request.requestURL}" var="esURL">
 					   <c:param name="locale" value="es_ES"/>
 					   <c:param name="lan_val" value="ES"/>
 					</c:url>
 					
-					<c:url value="${pageContext.request.getRequestURL()}" var="zhURL">
+					<c:url value="${pageContext.request.requestURL}" var="zhURL">
 					   <c:param name="locale" value="zh_HK"/>
 					   <c:param name="lan_val" value="ZH"/>
 					</c:url>
@@ -104,10 +101,8 @@
 					   <c:if test="${!(empty param.lan_val)}">
 					       <c:set var="lan_val" value="${param.lan_val}"/>
 					   </c:if>
-					   <div id="language_div" onclick="toggle_lan_menu();">${lan_val}</div>
-					   
-					     
-						<i id="lan_arrow" class="arrow_down"></i>
+					   <div id="language_div"   onclick="toggle_lan_menu();">${lan_val}</div>
+					   <i id="lan_arrow" class="arrow_down" ></i>
 					</li>
 					<div id="language_menu" class="lan_callout lan_border_callout">
 						<b class="lan_border_notch lan_notch"></b><b class="lan_notch"></b>

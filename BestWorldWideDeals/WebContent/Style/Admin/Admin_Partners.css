@@ -1,0 +1,640 @@
+@CHARSET "ISO-8859-1";
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background:#dedede;
+}
+
+
+#partners_main_content{
+   width: 100%;
+   height: auto;
+   min-height:52em;
+   min-width:800px;
+   padding-bottom:4em;
+}
+
+/* ####################### MENU #################################  */
+
+#partners_menu_wrapper{
+	width: 100%;
+	background: #4d4d4d;
+	min-width:800px;
+}
+
+#partners_menu{
+	list-style-type:none;
+	width: 25.9em;
+	padding:0;
+    margin: 0 auto;
+}
+
+#partners_menu li{
+	display: inline-block;
+    line-height: 2em;
+    padding: 0 1em;	
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: .05em;
+}
+
+.partner_menu_deactive_item{
+    color:#f49000;
+}
+
+.partner_menu_active_item{
+    background:#f49000;
+	color: #4d4d4d;	
+}
+
+#partners_menu li:hover{
+	background:#f49000;
+	color: #4d4d4d;
+}	
+
+/*############################## Add Partner###################################*/
+
+.partners_add_div{
+	width: 30em;
+	height: auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:4em;
+	margin-bottom: 6em;
+	background: white;
+	border-radius: 15px;
+	padding:0.02em 0 ;
+	padding-bottom: 4em;
+	border:2px solid #888888;
+}
+
+#partners_add_title{
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    color:#f49000;
+    letter-spacing: .05em;
+    padding-bottom: .5em;
+    border-bottom: 2px solid #dedede;
+}
+
+
+.partners_add_div_items{
+	display:block;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1.4em;
+	height: auto;
+}
+
+.partners_add_div_items p{
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin:0;
+    color: #888888;
+}
+
+.partners_add_div_items span{
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin:0;
+    color: #888888;
+}
+
+.partners_add_form_inps{
+	border: 2px solid #dedede;	
+	margin-top: .5em;
+	height: 1.6em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 97%;
+	border-radius: 5px;
+	color: #595959;
+}
+
+.partners_add_form_inps:focus{
+	border: 2px solid #f49000;	
+}
+
+.partners_add_form_select{
+    outline: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	overflow: hidden;
+	background-image: url(../../Images/General/arrow_down.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	border-radius: 5px;
+	color: #595959;
+	background-size: 1.6em;
+	width: 100%;
+	margin-top: .5em;
+	height: 2.5em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+}
+
+#partners_langs_div,#partners_currens_div{
+	margin-top: .5em;
+	height: auto;
+    padding-top: .5em;
+	font: .9em Arial, Helvetica, sans-serif;
+	width: 100%;
+	font-weight:bold;
+	color: #595959;
+}
+
+.partner_langs_subdivs,.partner_currens_subdivs{
+	display:inline-block;
+	width: 3.4em;
+	text-align:left;
+	padding: .26em .6em;
+	background: #f49000;
+	border-radius: 50px;
+	border:2px solid #595959;
+	margin-right: .3em;
+	margin-bottom: .5em;
+}
+
+.partner_langs_subdivs_close,.partner_currens_subdivs_close{
+	width:1em;
+	height:1em;
+	margin-top:.14em;
+	background-image: url(../../Images/General/cross.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1.5em;
+	border-radius: 50px;
+	float:right;
+	cursor:pointer;
+}
+
+.partners_add_checks{
+	margin-right: .5em;
+	margin-top: .5em;
+	border: 1px solid #888888;
+	cursor: pointer;
+}
+
+#partner_api_token_url{
+	display:none;
+}
+
+#partner_api_key{
+	display:none;
+}
+
+#partner_api_secret{
+	display:none;
+}
+
+#partners_add_urls,#partners_edit_urls{
+	width: 80%;
+	display:none;
+	height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.4em;
+    padding-bottom: 2em;
+    padding-top: .5em;
+    border-top: 2px solid #dedede;
+    border-bottom: 2px solid #dedede;
+}
+
+.partners_url_div{
+	width : 100%;
+	height:auto;
+	margin-top:1.4em;
+}
+
+.partners_url_div:first-child > .partners_url_type_divs{
+    margin-top:0; 	
+}
+
+
+.partners_url_div p{
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin:0;
+    color: #888888;
+    margin-top:.5em;
+}
+
+.partners_url_descps{
+    border: 2px solid #dedede;	
+	margin-top: .5em;
+	height: 4em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 97%;
+	border-radius: 5px;
+	color: #595959;
+	resize: none;
+}
+
+.partners_url_descps:focus{
+	border: 2px solid #f49000;
+}
+
+
+#partners_auth_type option{
+	font-size: 5px;
+}
+
+.partner_form_url_buttons{
+	text-align: center;
+	border: 2px solid #dedede;	
+	height: 1.4em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 30%;
+	border-radius: 50px;
+	line-height: 1.6em;
+	font-weight: bold;
+	color:#f49000;
+	cursor:pointer;
+	display:inline-block;
+}
+
+.partners_url_rem_buttons{
+	text-align: center;
+	font: .9em Arial, Helvetica, sans-serif;
+	width: auto;
+	margin-top: .3em;
+	line-height: 1.6em;
+	color:#f49000;
+	float:right;
+	cursor:pointer;
+	font-weight:bold;
+	display:inline-block;
+}
+
+.partners_url_rem_buttons:hover{
+    text-decoration: underline;
+}
+	
+.partner_form_url_buttons:hover{
+    color:white;
+    background: #f49000;
+}
+
+#partner_form_remurl_button{
+	display:none;
+	float:right;
+} 
+
+.partner_form_url_buttons_div{
+	display:block;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2.2em;
+	height: 2em;
+}
+
+#partner_form_button{
+	text-align: center;
+	margin-top: 4em;
+	border: 2px solid #dedede;	
+	height: 1.6em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 97%;
+	border-radius: 5px;
+	line-height: 1.8em;
+	font-weight: bold;
+	color:#f49000;
+	cursor:pointer;
+}
+
+#partner_form_button:hover{
+    color:white;
+    background: #f49000;
+} 
+
+#partners_add_form_err{
+   display:none;	
+   width: 80%;	
+   font: 1em Arial, Helvetica, sans-serif;
+   color: red;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top: 2em;
+   padding-left: .2em;
+}
+
+.partners_url_type_divs{
+	width: 100%;
+	height: auto;
+	margin-top: 2em;
+}
+
+.partners_url_type_title{
+	font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    margin:0;
+    color: #888888;
+}
+
+.partners_url_type_items{
+	display: inline-block;
+}
+
+.partners_url_type_items:focus{
+	border: 2px solid #f49000;
+}
+	
+.partners_url_selects{
+    outline: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	overflow: hidden;
+	background-image: url(../../Images/General/arrow_down.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	border-radius: 5px;
+	color: #595959;
+	background-size: 1.6em;
+	width: 36%;
+	margin-left: .5em;
+	height: 2.5em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	border: 2px solid #dedede;
+}
+
+.partners_url_inps{
+	border: 2px solid #dedede;	
+	height: 1.6em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 40%;
+	border-radius: 5px;
+	color: #595959;
+	float:right;
+	display:none;
+}
+
+
+/* ################################# List Partners ################################## */
+
+#list_partners_divs{
+	width: 30em;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 4em;
+	margin-bottom: 1em;
+	background: white;
+	border-radius: 15px;
+	padding:0.02em 0 ;
+	padding-bottom: 2em;
+	background:white;
+	border: 2px solid #888888;
+	display:none;
+}
+
+#partner_list_form_button{
+	text-align: center;
+	margin-top: 2em;
+	margin-left:auto;
+	margin-right:auto;
+	border: 2px solid #dedede;	
+	height: 1.6em;
+	padding: .3em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 50%;
+	border-radius: 5px;
+	line-height: 1.8em;
+	font-weight: bold;
+	color:#f49000;
+	cursor:pointer;
+}
+
+.partners_list_copy_div{
+    background-image: url(../../Images/General/copy-icon.png);
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	background-size: cover;
+    width:1.6em;
+    height:1.6em;
+    padding:0;
+    cursor : pointer;
+    margin-right: .5em;
+    float:right;
+}
+
+#partner_list_form_button:hover{
+    color:white;
+    background: #f49000;
+} 
+
+#partners_list_div{
+	width: 56em;
+    min-height: 20em;
+    height: auto;
+    margin-left: auto;
+    margin-right:auto;    	
+}
+
+#partners_list_title{
+	width: 100%;
+	text-align:center;
+	margin-top: 0;
+	font: 1.4em Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#595959;
+}
+
+/*Accordion*/
+
+.ui-accordion{
+   margin-bottom:4em;
+}
+
+.ui-accordion table{
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+.ui-accordion table td{
+} 
+
+
+#url_label_div{
+	color:white;
+    font-weight:bold;
+    text-align: center;	
+    background:#f49000;
+    padding: .2em 0;	
+    border-bottom: 2px solid #888888; 
+	border-top: 2px solid #888888;
+}
+
+.ui-accordion table td{
+    height: 3em;
+    
+}
+
+.partners_list_table_url_lastrow{
+	border-bottom: 1px solid #cccccc;
+}
+
+.partners_list_tables_url tr:last-child > td{
+	border-bottom: none;
+}
+
+.partners_list_tab_infodivs{
+	display:inline-block;
+	margin-right: 1.4em;
+}
+
+.partners_list_tab_lables{
+    color:#f49000;
+    font-weight:bold;	
+}
+
+.ui-accordion .ui-accordion-header{
+	font-weight:bold;
+	margin-top: 1em;
+	border: 2px solid #888888;
+}
+
+.ui-accordion-header-collapsed{
+	background: white;
+	border: 2px solid #888888;
+	color: #595959;
+}
+
+.ui-accordion-header-collapsed:hover{
+	background: #f2f2f2;
+}
+
+.ui-accordion-header-active{
+	background:#f49000;
+	color: white;
+	
+}
+
+.ui-accordion-content{
+	border: 2px solid #a6a6a6;
+}
+
+.ui-icon-custome-triangle-e{
+   padding-right:10px;	
+   background-position: 2px 2px;
+   background-size: 15px;
+   background-image: url('../../Images/General/arrow_right_tri_gray.png') !important;
+}
+
+.ui-icon-custome-triangle-s{
+   padding-right:10px;	
+   background-position: 2px 2px;
+   background-size: 15px;
+   background-image: url('../../Images/General/arrow_down_tri_white.png') !important;
+}
+
+/*##################################### Edit Partners #######################################*/
+
+
+#partner_edit_list_div{
+    width: 30em;
+	height: auto;
+	margin: 4em auto;
+	background: white;
+	border-radius: 15px;
+	padding:0.02em 0 ;
+	padding-bottom: 2em;
+	background:white;
+	border: 2px solid #888888;
+	display:none;
+}
+
+#partner_info_edit_div{
+	width: 30em;
+	height: auto;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:4em;
+	margin-bottom: 8em;
+	background: white;
+	border-radius: 15px;
+	padding:0.02em 0 ;
+	padding-bottom: 4em;
+	border:2px solid #888888;
+	display:none;
+}
+
+#partner_form_editremurl_button{
+	/*display:none;*/
+	float:right;
+} 
+
+#partners_edit_form_err{
+   display:none;	
+   width: 80%;	
+   font: 1em Arial, Helvetica, sans-serif;
+   color: red;
+   margin-left:auto;
+   margin-right:auto;
+   margin-top: 2em;
+   padding-left: .2em;
+}
+
+
+.partner_edit_buttons{
+	text-align: center;
+	border: 2px solid #dedede;	
+	height: 1.4em;
+	padding: .3em;
+	margin-top: 2em;
+	font: 1em Arial, Helvetica, sans-serif;
+	width: 40%;
+	border-radius: 5px;
+	line-height: 1.6em;
+	font-weight: bold;
+	color:#f49000;
+	cursor:pointer;
+	display:inline-block;
+}
+
+.partner_edit_buttons:hover{
+    color:white;
+    background: #f49000;
+}
+
+#partner_edit_remove_button{
+	float:right;
+}
+
+#partner_edit_name{
+    background:white; 	
+}
+
+#partners_edit_langs_div,#partners_edit_currens_div{
+	margin-top: 1em;
+	height: auto;
+    padding-top: .5em;
+	font: .9em Arial, Helvetica, sans-serif;
+	width: 100%;
+	font-weight:bold;
+	color: #595959;
+}
+
