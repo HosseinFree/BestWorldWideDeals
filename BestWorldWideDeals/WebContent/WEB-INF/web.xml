@@ -128,7 +128,7 @@
   
   <servlet-mapping>
     <servlet-name>admin_login</servlet-name>
-    <url-pattern>/Admin_Login</url-pattern>
+    <url-pattern>/Admin_Login.jsp</url-pattern>
   </servlet-mapping>
   
   

@@ -25,12 +25,24 @@
         <div id="Admin_logindiv">
            <p id="Admin_loginmessage">Administrator  Login</p>
            <div id="Admin_topline"> </div>
-              <form id="Admin_loginform" action="handle_admin_login" onsubmit="return check_form()"> 
+              <form id="Admin_loginform" action="handle_admin_login" method="Post" onsubmit="return check_form()"> 
 	             <div>
 	                 <input type="text" id="Admin_un" name="username" class="Admin_login_Inputs" maxlength="40" placeholder="Enter Your Username...">
 	                 <input type="password" id="Admin_pass" name="pass" class="Admin_login_Inputs" maxlength="15" placeholder="Enter Your Password...">
 	                 <br>
-	                 <div id="Admin_error"></div> 
+	                 
+	                 <c:if test="${ admin_login_error eq 'not_exist'}">
+	                     <div id="Admin_error"> <p>Admin information you entered does not exist in our system.</p> </div>
+	                 </c:if> 
+	                 
+	                 <c:if test="${ admin_login_error eq 'system_error'}">
+	                     <div id="Admin_error"> <p>Sorry, we are having some technical difficulty at the moment. Please try again later.</p> </div>
+	                 </c:if> 
+	                 
+	                 <c:if test="${ empty admin_login_error}">
+	                     <div id="Admin_error" class="Admin_error_deactive"></div>
+	                 </c:if> 
+	                 
 	                 <button type="submit" id="Admin_submitbutton">Login</button>
 	             </div>                
 	          </form>     

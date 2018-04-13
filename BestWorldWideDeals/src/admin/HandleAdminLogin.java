@@ -20,7 +20,7 @@ public class HandleAdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String admin_login = "SELECT admin_id FROM admin_credentials WHERE admin_username = ? AND admin_pass=?;";
 		DB database = new DB("jdbc/bwwd_adminDB");
 		Connection con = null;
@@ -45,17 +45,19 @@ public class HandleAdminLogin extends HttpServlet {
 		    }else{
 		    	resp.setContentType("text");
 		        resp.setHeader("Cache-Control","no-cache");
-		        resp.getWriter().write("not_exist");
+		        req.getSession().setAttribute("admin_login_error","not_exist");
+		        req.getHeader("Referer");
+		        resp.sendRedirect("./Admin_Login.jsp");
+		        //req.getRequestDispatcher("./Admin_Login.jsp").forward(req, resp);
 		    }
 		    
 		}catch(Exception e){
-			
+			e.printStackTrace();
 			resp.setContentType("text");
 	        resp.setHeader("Cache-Control","no-cache");
-	        resp.getWriter().write("system_Error");
-	        e.printStackTrace();
-	        
-		}
+	        req.setAttribute("admin_login_error","system_error");
+	        req.getRequestDispatcher("./Admin_Login.jsp").forward(req, resp);
+	     }
 		
 	}
 

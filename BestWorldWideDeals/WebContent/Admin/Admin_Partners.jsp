@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/Style/Admin/Admin_Partners.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
