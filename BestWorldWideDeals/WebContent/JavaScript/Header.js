@@ -162,9 +162,11 @@ function toggle_small_lan_menu(){
 function set_value(element,value){
 	if (element === 'currency')
 		currency_val = value;
-	
+	   
 	if (element === 'language')
 		language_val = value;
+	
+	toggle_small_cur_menu()
 	
 	$('#'+element+'_div').text(value);
 	$('#small_'+element+'_val').text(value);

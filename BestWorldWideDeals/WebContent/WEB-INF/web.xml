@@ -144,7 +144,6 @@
     <url-pattern>/hotels_search_results</url-pattern>
   </servlet-mapping>
   
-  
   <servlet>
     <servlet-name>Index_hotels</servlet-name>
     <jsp-file>/Index_hotels.jsp</jsp-file>
@@ -154,5 +153,6 @@
     <servlet-name>Index_hotels</servlet-name>
     <url-pattern>/Test</url-pattern>
   </servlet-mapping> 
- 
+  
+  
 </web-app>

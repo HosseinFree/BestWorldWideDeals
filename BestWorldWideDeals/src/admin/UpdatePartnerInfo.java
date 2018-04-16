@@ -3,6 +3,7 @@ package admin;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Iterator;
 import java.util.StringTokenizer;
@@ -48,6 +49,9 @@ public class UpdatePartnerInfo extends HttpServlet {
           String Delete_url_query = "DELETE FROM partners_urls WHERE partner_id="+p_id+";";
           String Delete_key_query = "DELETE FROM partners_keys WHERE partner_id="+p_id+";";
           String Delete_secret_query = "DELETE FROM partners_secrets WHERE partner_id="+p_id+";";
+          String Delete_partner_lang_query = "DELETE FROM partners_languages WHERE partner_id="+p_id+";";
+          String Delete_partner_curren_query = "DELETE FROM partners_currencies WHERE partner_id="+p_id+";";
+          
           DB database = new DB("jdbc/bwwd_adminDB");
   		  Connection con = null;
   		  con = database.getConnection();
@@ -56,8 +60,11 @@ public class UpdatePartnerInfo extends HttpServlet {
   		  stmt.addBatch(Delete_url_query);
   		  stmt.addBatch(Delete_key_query);
   		  stmt.addBatch(Delete_secret_query);
+  		  stmt.addBatch(Delete_partner_lang_query);
+  		  stmt.addBatch(Delete_partner_curren_query);
   		  stmt.executeBatch();
   		  con.commit();
+  		  con.close();
 	 }
 	
 	/**
@@ -98,7 +105,12 @@ public class UpdatePartnerInfo extends HttpServlet {
 	    String Partner_key_query = "INSERT INTO partners_keys(partner_id,partner_key) VALUES(?,?);";
 	    String Partner_secret_query = "INSERT INTO partners_secrets(partner_id,partner_secret) VALUES(?,?);";
 	    String Partner_url_query = "INSERT INTO partners_urls(partner_id,url_type,type_other,url,description) VALUES(?,?,?,?,?);";
-
+	    String get_languageid_query = "SELECT lang_id FROM supported_languages WHERE lang_val = ?";
+	    String Partner_language_query = "INSERT INTO partners_languages(lang_id,partner_id) VALUES(?,?);";
+	    String get_currencyid_query = "SELECT curren_id FROM supported_currencies WHERE curren_val = ?";
+	    String Partner_currency_query = "INSERT INTO partners_currencies(curren_id,partner_id) VALUES(?,?);";
+	    
+	    
 	    DB database = new DB("jdbc/bwwd_adminDB");
 		Connection con = database.getConnection();;  
 	    PreparedStatement ps = con.prepareStatement(Partner_info_update_query);
@@ -162,6 +174,38 @@ public class UpdatePartnerInfo extends HttpServlet {
 	    	ps.addBatch();
 	      }
 		  ps.executeBatch();
+		  
+		  /* Languages and partners*/
+		  ResultSet rs = null;
+		  StringTokenizer tokens = new StringTokenizer(partner_languages,",");
+		  ps = con.prepareStatement(get_languageid_query);
+		  PreparedStatement ps2 = con.prepareStatement(Partner_language_query);
+		  while(tokens.hasMoreTokens()){
+			  ps.setString(1,(String)tokens.nextToken());
+			  rs = ps.executeQuery();
+			  rs.next();
+			  int lang_id = rs.getInt(1);
+			  ps2.setInt(1,lang_id);
+			  ps2.setString(2,p_id);
+			  ps2.addBatch();
+		  }
+		  ps2.executeBatch();
+		  
+		  /* Currencies and partners*/
+		  tokens = new StringTokenizer(partner_currencies,",");
+		  ps = con.prepareStatement(get_currencyid_query);
+		  ps2 = con.prepareStatement(Partner_currency_query);
+		  while(tokens.hasMoreTokens()){
+			  ps.setString(1,(String)tokens.nextToken());
+			  rs = ps.executeQuery();
+			  rs.next();
+			  int curren_id = rs.getInt(1);
+			  ps2.setInt(1,curren_id);
+			  ps2.setString(2,p_id);
+			  ps2.addBatch();
+		  }
+		  
+		  ps2.executeBatch();
 		  con.close();
     }
 	

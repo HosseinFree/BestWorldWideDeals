@@ -71,7 +71,11 @@ public class StoreNewPartnerInfo extends HttpServlet {
 	    String Partner_key_query = "INSERT INTO partners_keys(partner_id,partner_key) VALUES(?,?);";
 	    String Partner_secret_query = "INSERT INTO partners_secrets(partner_id,partner_secret) VALUES(?,?);";
 	    String Partner_url_query = "INSERT INTO partners_urls(partner_id,url_type,type_other,url,description) VALUES(?,?,?,?,?);";
-	    	    
+	    String get_languageid_query = "SELECT lang_id FROM supported_languages WHERE lang_val = ?";
+	    String Partner_language_query = "INSERT INTO partners_languages(lang_id,partner_id) VALUES(?,?);";
+	    String get_currencyid_query = "SELECT curren_id FROM supported_currencies WHERE curren_val = ?";
+	    String Partner_currency_query = "INSERT INTO partners_currencies(curren_id,partner_id) VALUES(?,?);";
+	    		
 	    DB database = new DB("jdbc/bwwd_adminDB");
 		Connection con = null;
 		try{
@@ -164,6 +168,38 @@ public class StoreNewPartnerInfo extends HttpServlet {
 	    	ps.addBatch();
 	      }
 		  ps.executeBatch();
+		  
+		  /* Languages and partners*/
+		  StringTokenizer tokens = new StringTokenizer(partner_languages,",");
+		  ps = con.prepareStatement(get_languageid_query);
+		  PreparedStatement ps2 = con.prepareStatement(Partner_language_query);
+		  while(tokens.hasMoreTokens()){
+			  ps.setString(1,(String)tokens.nextToken());
+			  rs = ps.executeQuery();
+			  rs.next();
+			  int lang_id = rs.getInt(1);
+			  ps2.setInt(1,lang_id);
+			  ps2.setInt(2,p_id);
+			  ps2.addBatch();
+		  }
+		  ps2.executeBatch();
+		  
+		  /* Currencies and partners*/
+		  tokens = new StringTokenizer(partner_currencies,",");
+		  ps = con.prepareStatement(get_currencyid_query);
+		  ps2 = con.prepareStatement(Partner_currency_query);
+		  while(tokens.hasMoreTokens()){
+			  ps.setString(1,(String)tokens.nextToken());
+			  rs = ps.executeQuery();
+			  rs.next();
+			  int curren_id = rs.getInt(1);
+			  ps2.setInt(1,curren_id);
+			  ps2.setInt(2,p_id);
+			  ps2.addBatch();
+		  }
+		  
+		  ps2.executeBatch();
+		  
 		  con.commit();  
 		  con.close();
 		  

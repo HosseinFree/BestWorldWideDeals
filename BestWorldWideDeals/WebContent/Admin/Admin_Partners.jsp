@@ -63,7 +63,7 @@
 			                <option value="none">Choose a language</option>
 					        <option value="EN">EN - English</option> <option value="FR">FR - French</option> <option value="ES">ES - Spanish</option>
 						    <option value="ZH">ZH - Chinese</option> <option value="IT">IT - Italian</option> <option value="RU">RU - Russian</option>
-						    <option value="DE">DE - German</option>
+						    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option>
 			   	         </select>
 				         <div id="partners_langs_div"></div>
 				    </div>
@@ -72,10 +72,18 @@
 						             <p>Supported Currencies</p>
 						             <select id="partners_currencies_select" class="partners_add_form_inps  partners_add_form_select" onchange="add_currency('add')">
 						                <option value="none">Choose a currency</option>
-								        <option value="CAD">Canada Dollar - CAD</option><option value="CNY">China Yuan - CNY</option><option value="EUR">Euro - EUR</option>
-									    <option value="USD">US Dollar - USD</option><option value="GBP">British Pound	- GBP</option><option value="RUB">Russia Ruble - RUB</option>
-									    <option value="AUD">Australia Dollar - AUD</option><option value="NZD">New Zealand Dollar - NZD</option>
-						   	         </select>
+								        <option value="CAD">Canadian Dollar - CAD</option><option value="CNY">Chinese Yuan - CNY</option><option value="EUR">Euro - EUR</option>
+									    <option value="USD">US Dollar - USD</option><option value="GBP">British Pound	- GBP</option><option value="RUB">Russian Ruble - RUB</option>
+									    <option value="AUD">Australian Dollar - AUD</option><option value="NZD">New Zealand Dollar - NZD</option><option value="ARS">Argentine Peso - ARS</option>
+									    <option value="BRL">Brazilian Real - BRL</option><option value="CHF">Swiss Franc - CHF</option><option value="COP">Colombian Peso - COP</option>
+									    <option value="CLP">Chilean Peso - CLP</option> <option value="HDK">Hong Kong Dollar - HDK</option> <option value="IDR">Indonesian Rupiah - IDR</option> 
+									    <option value="INR">Indian Rupee - INR</option> <option value="JPY">Japanese Yen - JPY</option> <option value="KRW">South Korean Won - KRW</option> 
+									    <option value="MYR">Malaysian Ringgit - MYR</option><option value="PEN">Peruvian Sol - PEN</option><option value="PHP">Philippine Piso - PHP</option>
+									    <option value="SGD">Singapore Dollar - SGD</option><option value="THB">Thai Baht - THB</option><option value="TWD">New Taiwan Dollar - TWD</option>
+									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXM">Mexican Peso - MXN</option>
+									    <option value="CZK">Czech koruna - CZK</option><option value="SEK">Swedish krona - SEK</option><option value="DKK">Danish Krone-DKK</option>
+									    <option value="TRY">Turkish Lira - TRY</option>
+								     </select>
 							         <div id="partners_currens_div"></div>
 				    </div>
 				    
@@ -174,7 +182,7 @@
 						                <option value="none">Choose a language</option>
 								        <option value="EN">EN - English</option><option value="FR">FR - French</option><option value="ES">ES - Spanish</option>
 									    <option value="ZH">ZH - Chinese</option><option value="IT">IT - Italian</option><option value="RU">RU - Russian</option>
-									    <option value="DE">DE - German</option>
+									    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option>
 						   	         </select>
 							         <div id="partners_edit_langs_div"></div>
 							    </div>
@@ -182,9 +190,17 @@
 						             <p>Supported Currencies</p>
 						             <select id="partners_edit_currencies_select" class="partners_add_form_inps  partners_add_form_select" onchange="add_currency('edit')">
 						                <option value="none">Choose a currency</option>
-								        <option value="CAD">Canada Dollar - CAD</option><option value="CNY">China Yuan - CNY</option><option value="EUR">Euro - EUR</option>
-									    <option value="USD">US Dollar - USD</option><option value="GBP">British Pound	- GBP</option><option value="RUB">Russia Ruble - RUB</option>
-									    <option value="AUD">Australia Dollar - AUD</option><option value="NZD">New Zealand Dollar - NZD</option>
+								        <option value="CAD">Canadian Dollar - CAD</option><option value="CNY">Chinese Yuan - CNY</option><option value="EUR">Euro - EUR</option>
+									    <option value="USD">US Dollar - USD</option><option value="GBP">British Pound	- GBP</option><option value="RUB">Russian Ruble - RUB</option>
+									    <option value="AUD">Australian Dollar - AUD</option><option value="NZD">New Zealand Dollar - NZD</option><option value="ARS">Argentine Peso - ARS</option>
+									    <option value="BRL">Brazilian Real - BRL</option><option value="CHF">Swiss Franc - CHF</option><option value="COP">Colombian Peso - COP</option>
+									    <option value="CLP">Chilean Peso - CLP</option> <option value="HDK">Hong Kong Dollar - HDK</option> <option value="IDR">Indonesian Rupiah - IDR</option> 
+									    <option value="INR">Indian Rupee - INR</option> <option value="JPY">Japanese Yen - JPY</option> <option value="KRW">South Korean Won - KRW</option> 
+									    <option value="MYR">Malaysian Ringgit - MYR</option><option value="PEN">Peruvian Sol - PEN</option><option value="PHP">Philippine Piso - PHP</option>
+									    <option value="SGD">Singapore Dollar - SGD</option><option value="THB">Thai Baht - THB</option><option value="TWD">New Taiwan Dollar - TWD</option>
+									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXM">Mexican Peso - MXN</option>
+									    <option value="CZK">Czech koruna - CZK</option><option value="SEK">Swedish krona - SEK</option><option value="DKK">Danish Krone-DKK</option>
+									    <option value="TRY">Turkish Lira - TRY</option>
 						   	         </select>
 							         <div id="partners_edit_currens_div"></div>
 				                </div>
