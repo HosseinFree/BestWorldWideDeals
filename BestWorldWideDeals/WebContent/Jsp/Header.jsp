@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	    
 <fmt:requestEncoding value="UTF-8" />
@@ -11,11 +11,11 @@
    <c:set var="loc" value="${param.locale}"/>
 </c:if>
 
-<fmt:setLocale value="${loc }"/>
+<fmt:setLocale value="${loc}"/>
 <fmt:bundle basename="app">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -42,25 +42,115 @@
 
 			<div id="large-menu">
 				<ul>
+										
+					<c:url value="${pageContext.request.requestURL}" var="frURL">
+					   <c:param name="locale" value="fr_FR"/>
+					   <c:param name="lan_val" value="Français"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="enURL">
+					   <c:param name="locale" value="en_GB"/>
+					   <c:param name="lan_val" value="English"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="esURL">
+					   <c:param name="locale" value="es_ES"/>
+					   <c:param name="lan_val" value="Español"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="zhURL">
+					   <c:param name="locale" value="zh_CH"/>
+					   <c:param name="lan_val" value="简体中文"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="itURL">
+					   <c:param name="locale" value="it_IT"/>
+					   <c:param name="lan_val" value="Italiano"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="deURL">
+					   <c:param name="locale" value="de_DE"/>
+					   <c:param name="lan_val" value="Deutsch"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="jpURL">
+					   <c:param name="locale" value="ja_JP"/>
+					   <c:param name="lan_val" value="日本語"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="ruURL">
+					   <c:param name="locale" value="ru_RU"/>
+					   <c:param name="lan_val" value="Pусский"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="koURL">
+					   <c:param name="locale" value="ko_KR"/>
+					   <c:param name="lan_val" value="한국어"/>
+					</c:url>
+					
+					<c:url value="${pageContext.request.requestURL}" var="ptURL">
+					   <c:param name="locale" value="pt_PT"/>
+					   <c:param name="lan_val" value="Português"/>
+					</c:url>
+					
+					<li class="large_menu_items">
+					    <div id="account_div" onclick="toggle_acc_menu();"><fmt:message key="myAccount"/></div>
+						<i id="acc_arrow" class="arrow_down"></i>
+					</li>
+					<div id="account_menu" class="callout border_callout">
+						<b class="border_notch notch"></b><b class="notch"></b>
+						<ul>
+							<a href="#"><li class="acc_men_items" id="acc_men_first_item"><div><fmt:message key="logIn"/></div></li></a><br/>
+							<a href="#"><li class="acc_men_items"><div><fmt:message key="signUp"/></div></li></a>
+						</ul>
+					</div>
+					
+					
+									    			    
+					<li class="large_menu_items">
+					   <c:set var="lan_val" value="English"/>
+					   <c:if test="${!(empty param.lan_val)}">
+					       <c:set var="lan_val" value="${param.lan_val}"/>
+					   </c:if>
+					   <div id="language_div"  onclick="toggle_lan_menu();">${lan_val}</div>
+					   <i id="lan_arrow" class="arrow_down"></i>
+				    </li>
+					
+					<li class="large_menu_items">
+					   <div id="earth_map_logo"  onclick="toggle_lan_menu();"></div>
+				    </li>
+				    
+					
+					<div id="language_menu" class="lan_callout lan_border_callout">
+						<b class="lan_border_notch lan_notch"></b><b class="lan_notch"></b>
+						<div class="language_menu_divs">
+							<ul>
+								<li class="lan_men_items" ><a href="${enURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/EN_img.png');"></div><div>English</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${frURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/FR_img.png');"></div><div>Français</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${esURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/ES_img.png');"></div><div>Español</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${itURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/IT_img.png');"></div><div>Italiano</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${koURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/KO_img.png');"></div><div>한국어</div></a></li><br/>
+						    </ul>
+					    </div>
+					    <div class="language_menu_divs">
+							<ul>
+							    <li class="lan_men_items" ><a href="${deURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/DE_img.png');"></div><div>Deutsch</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${jpURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/JP_img.png');"></div><div>日本語</div></a></li><br/>
+								<li class="lan_men_items" ><a href="${ruURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/RU_img.png');"></div><div>Pусский</div></a></li><br/>
+								<li class="lan_men_items"><a href="${zhURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/ZH_img.png');"></div><div>简体中文 </div></a></li>
+								<li class="lan_men_items"><a href="${ptURL}"><div class="lan_men_items_flag_icons" style="background-image: url('${pageContext.request.contextPath}/Images/Header/PT_img.png');"></div><div>Português</div></a></li>
+							</ul>
+						</div>	
+					</div>
+					
 					<li class="large_menu_items"><div id="currency_div" onclick="toggle_cur_menu();">USD</div><i id="cur_arrow" class="arrow_down"></i></li>
+					<li class="large_menu_items">
+					   <div id="currency_map_logo"></div>
+				    </li>
+				    
 					<div id="currency_menu" class="cur_callout cur_border_callout">
 						<b class="cur_border_notch cur_notch"></b><b class="cur_notch"></b>
-						<div class="currency_menu_divs">
-						    <ul>
-								<li class="cur_men_items" onclick="set_value('currency','CAD')"><div>CAD - <span><fmt:message key="CAD"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','USD')"><div>USD - <span><fmt:message key="USD"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','EUR')"><div>EUR - <span><fmt:message key="EUR"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','AUD')"><div>AUD - <span><fmt:message key="AUD"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','GBP')"><div>GBP - <span><fmt:message key="GBP"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','CNY')"><div>CNY - <span><fmt:message key="CNY"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','RUB')"><div>RUB - <span><fmt:message key="RUB"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','NZD')"><div>NZD - <span><fmt:message key="NZD"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','ARS')"><div>ARS - <span><fmt:message key="ARS"/></span></div></li><br />
-								<li class="cur_men_items" onclick="set_value('currency','BRL')"><div>BRL - <span><fmt:message key="BRL"/></span></div></li><br/>
-								<li class="cur_men_items" onclick="set_value('currency','SEK')"><div>SEK - <span><fmt:message key="SEK"/></span></div></li>
-							</ul>
-						</div> 
-						
+												
 						<div class="currency_menu_divs">
 							<ul>
 								<li class="cur_men_items" onclick="set_value('currency','CHF')"><div>CHF - <span><fmt:message key="CHF"/></span></div></li><br/>
@@ -90,80 +180,26 @@
 								<li class="cur_men_items" onclick="set_value('currency','TRY')"><div>TRY - <span><fmt:message key="TRY"/></span></div></li>
 							</ul>
 						</div>
+						
+						<div class="currency_menu_divs">
+						    <ul>
+								<li class="cur_men_items" onclick="set_value('currency','CAD')"><div>CAD - <span><fmt:message key="CAD"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','USD')"><div>USD - <span><fmt:message key="USD"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','EUR')"><div>EUR - <span><fmt:message key="EUR"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','AUD')"><div>AUD - <span><fmt:message key="AUD"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','GBP')"><div>GBP - <span><fmt:message key="GBP"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','CNY')"><div>CNY - <span><fmt:message key="CNY"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','RUB')"><div>RUB - <span><fmt:message key="RUB"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','NZD')"><div>NZD - <span><fmt:message key="NZD"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','ARS')"><div>ARS - <span><fmt:message key="ARS"/></span></div></li><br />
+								<li class="cur_men_items" onclick="set_value('currency','BRL')"><div>BRL - <span><fmt:message key="BRL"/></span></div></li><br/>
+								<li class="cur_men_items" onclick="set_value('currency','SEK')"><div>SEK - <span><fmt:message key="SEK"/></span></div></li>
+							</ul>
+						</div> 
+						
 					</div>
 					
-					<c:url value="${pageContext.request.requestURL}" var="frURL">
-					   <c:param name="locale" value="fr_FR"/>
-					   <c:param name="lan_val" value="FR"/>
-					</c:url>
 					
-					<c:url value="${pageContext.request.requestURL}" var="enURL">
-					   <c:param name="locale" value="en_GB"/>
-					   <c:param name="lan_val" value="EN"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="esURL">
-					   <c:param name="locale" value="es_ES"/>
-					   <c:param name="lan_val" value="ES"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="zhURL">
-					   <c:param name="locale" value="zh_CH"/>
-					   <c:param name="lan_val" value="ZH"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="itURL">
-					   <c:param name="locale" value="it-IT"/>
-					   <c:param name="lan_val" value="IT"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="deURL">
-					   <c:param name="locale" value="de-DE"/>
-					   <c:param name="lan_val" value="DE"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="jpURL">
-					   <c:param name="locale" value="ja-JP"/>
-					   <c:param name="lan_val" value="JP"/>
-					</c:url>
-					
-					<c:url value="${pageContext.request.requestURL}" var="ruURL">
-					   <c:param name="locale" value="ru-RU"/>
-					   <c:param name="lan_val" value="RU"/>
-					</c:url>
-					
-					<li class="large_menu_items">
-					   <c:set var="lan_val" value="EN"/>
-					   <c:if test="${!(empty param.lan_val)}">
-					       <c:set var="lan_val" value="${param.lan_val}"/>
-					   </c:if>
-					   <div id="language_div"   onclick="toggle_lan_menu();">${lan_val}</div>
-					   <i id="lan_arrow" class="arrow_down" ></i>
-					</li>
-					<div id="language_menu" class="lan_callout lan_border_callout">
-						<b class="lan_border_notch lan_notch"></b><b class="lan_notch"></b>
-						<ul>
-							<li class="lan_men_items" ><a href="${enURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/EN_img.png');">EN</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${frURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/FR_img.png');">FR</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${esURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/ES_img.png');">ES</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${itURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/IT_img.png');">IT</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${deURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/DE_img.png');">DE</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${jpURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/JP_img.png');">JP</div></a></li><br/>
-							<li class="lan_men_items" ><a href="${ruURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/RU_img.png');">RU</div></a></li><br/>
-							<li class="lan_men_items"><a href="${zhURL}"><div style="background-image: url('${pageContext.request.contextPath}/Images/Header/ZH_img.png');">ZH </div></a></li>
-						</ul>
-					</div>
-					<li class="large_menu_items">
-					    <div id="account_div" onclick="toggle_acc_menu();"><fmt:message key="myAccount"/></div>
-						<i id="acc_arrow" class="arrow_down"></i>
-					</li>
-					<div id="account_menu" class="callout border_callout">
-						<b class="border_notch notch"></b><b class="notch"></b>
-						<ul>
-							<a href="#"><li class="acc_men_items" id="acc_men_first_item"><div><fmt:message key="logIn"/></div></li></a><br/>
-							<a href="#"><li class="acc_men_items"><div><fmt:message key="signUp"/></div></li></a>
-						</ul>
-					</div>
 				</ul>
 			</div> <!-- End of large-menu -->
 		</div> <!--  End of menu div -->
@@ -229,14 +265,16 @@
 		      </div>
 		      <div id="small_language_menu" class="small_menu_divs">
 		           <ul>
-		              <li  class="small_menu_subitems first_submenu_item" onclick="set_value('#language','EN')"><a href="${enURL}"><div id="EN_div"><span>EN</span></div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','FR')"><a href="${frURL}"><div id="FR_div">FR</div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','ES')"><a href="${esURL}"><div id="ES_div">ES</div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','IT')"><a href="${itURL}"><div id="IT_div">IT</div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','DE')"><a href="${deURL}"><div id="DE_div">DE</div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','JP')"><a href="${jpURL}"><div id="JP_div">JP</div></a></li>
-		              <li class="small_menu_subitems" onclick="set_value('language','RU')"><a href="${ruURL}"><div id="RU_div">RU</div></a></li>
-		              <li class="small_menu_subitems   last_submenu_item" onclick="set_value('language','ZH')"><a href="${zhURL}"><div id="ZH_div">ZH</div></a></li>
+		              <li  class="small_menu_subitems first_submenu_item" onclick="set_value('#language','EN')"><a href="${enURL}"><div id="EN_div"><span>English</span></div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','FR')"><a href="${frURL}"><div id="FR_div">Français</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','ES')"><a href="${esURL}"><div id="ES_div">Español</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','IT')"><a href="${itURL}"><div id="IT_div">Italiano</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','DE')"><a href="${deURL}"><div id="DE_div">Deutsch</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','JP')"><a href="${jpURL}"><div id="JP_div">日本語</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','RU')"><a href="${ruURL}"><div id="RU_div">Pусский</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','KO')"><a href="${koURL}"><div id="KO_div">한국어</div></a></li>
+		              <li class="small_menu_subitems" onclick="set_value('language','PT')"><a href="${ptURL}"><div id="PT_div">Português</div></a></li>
+		              <li class="small_menu_subitems   last_submenu_item" onclick="set_value('language','ZH')"><a href="${zhURL}"><div id="ZH_div"> 简体中文</div></a></li>
 		           </ul>
 		      </div>
 		    </li>

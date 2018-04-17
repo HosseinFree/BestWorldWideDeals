@@ -169,6 +169,7 @@ public class StoreNewPartnerInfo extends HttpServlet {
 	      }
 		  ps.executeBatch();
 		  
+		  
 		  /* Languages and partners*/
 		  StringTokenizer tokens = new StringTokenizer(partner_languages,",");
 		  ps = con.prepareStatement(get_languageid_query);
@@ -200,7 +201,7 @@ public class StoreNewPartnerInfo extends HttpServlet {
 		  
 		  ps2.executeBatch();
 		  
-		  con.commit();  
+		  con.commit(); 
 		  con.close();
 		  
 		}catch(Exception e){

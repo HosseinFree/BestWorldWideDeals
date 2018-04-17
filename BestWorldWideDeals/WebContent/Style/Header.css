@@ -223,6 +223,14 @@ html, body {
 	background-image: url('../Images/Header/RU_img.png');
 }
 
+#KO_div{
+	background-image: url('../Images/Header/KO_img.png');
+}
+
+#PT_div{
+	background-image: url('../Images/Header/PT_img.png');
+}
+
 /*########################################### END OF  SMALL MENU STYLE ##################################################*/
 
 /*########################################### STARTING LARGE MENU STYLE ##################################################*/
@@ -230,7 +238,7 @@ html, body {
 	position: relative;
 	float: right;
 	height: 50%;
-	width: 62%;
+	width: 74%;
 	padding: 0;
 	padding-top: .2em;
 }
@@ -241,15 +249,14 @@ html, body {
 	position: relative;
 	list-style-type: none;
 	float: right;
-	width: 65%;
-	
+	width: 75%;
 }
 
 #large-menu ul li {
 	/*color: #888888;*/
 	/*color: #4d94ff;*/
 	color: #f49000;
-	float: left;
+	float: right;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	font-size: 1.1em;
@@ -283,34 +290,51 @@ html, body {
 	outline: none;
 }
 
-#currency_div{
-	/*width: 4em;*/
-	margin-right: .4em;
-	width: 4em;
-	text-align:right;
+#currency_map_logo{
+	width:2em;
+	height:2.4em;
+	margin-left:2em;
 	background-repeat: no-repeat;
-	background-size: 1.5em;
+	background-size: 1.6em;
 	background-position:left;
 	background-image: url('../Images/Header/currency_icon.png');	
-	cursor: pointer;
+	
 }
 
-#language_div{
-	/*width: 4em;*/
-	margin-left: 1.4em;
-	width: 3.2em;
-	text-align:right;
+#currency_div{
+	margin-right: .4em;
+	width: 2em;
+	text-align:center;
 	cursor: pointer;
+	
+}
+
+#earth_map_logo{
+	width:2.4em;
+	height:2.4em;
+	margin-left: 1.4em;
 	background-repeat: no-repeat;
-	background-size: 1.5em;
-	background-position:left;
+	background-size: 1.6em;
+	background-position:center;
 	background-image: url('../Images/Header/earth_map.png');
 }
 
-#account_div{
-	/*width: 8.5em;*/
-	margin-left: 1.4em;
+#language_div{
+	/*margin-left: 1.4em;*/
 	width: auto;
+	text-align:center;
+	cursor: pointer;
+    /*background-repeat: no-repeat;
+	background-size: 1.5em;
+	background-position:left;
+	background-image: url('../Images/Header/earth_map.png');
+	*/
+}
+
+#account_div{
+	width: 6em;
+	margin-left: 1.4em;
+	/*width: auto;*/
 	cursor: pointer;
 }
 
@@ -360,7 +384,7 @@ html, body {
 .callout {
 	position: absolute;
 	width: auto;
-	margin-left: 13.4em;
+	margin-left: 22em;
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
@@ -438,15 +462,16 @@ html, body {
 
 /*################################## Language Menu ###############################################*/
 .lan_callout {
-	position: absolute;
-	width: auto;
-	margin-left: 7.1em;
+	position: fixed;
+	/*width: auto;*/
+	/*margin-left: 7.1em;*/
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
     /*border: 2px solid #4d94ff;*/
     border: 2px solid  #f49000;
    	box-shadow: 0 2px 2px #444;
+   	
 }
 
 .lan_border_callout {
@@ -456,7 +481,7 @@ html, body {
 .lan_notch {
 	position:absolute;
 	margin-top: -10px;
-	margin-left: 35px;
+	margin-left: 120px;
 	border-top: 0;
 	border-bottom: 10px solid #4d4d4d;
 	border-left: 10px solid transparent;
@@ -467,32 +492,49 @@ html, body {
 	/*border-bottom-color: #4d94ff;*/
 	border-bottom-color: #f49000;
 	margin-top: -13px;
-	margin-left: 35px;
+	margin-left: 120px;
 }
 
+#language_menu{
+	display:none;	
+    width: 16em;	
+}
+	
 #language_menu ul{
-	width: 5.5em;
+	width: 6.5em;
 	padding:0;
 	margin:0;
+
 }
 
-.lan_men_items{
-	border-bottom: 1px dotted black;
+.language_menu_divs{
+	float:right;
+	display:inline-block;
+	width:8em;
+	padding: 0;
+	padding-top:.4em;
+	padding-bottom:1.4em;
+	
 }
+	
+/*.lan_men_items{
+	border-bottom: 1px dotted black;
+}*/
 
 .lan_men_items:last-child{
 	border-bottom:none;
 }
 	
-.lan_men_items div{
-    width:80%;
-    background-repeat: no-repeat;
-	background-size: 1.4em;
-	background-position:right;
+.lan_men_items_flag_icons{
+	width:1em;
+    height:1em;
+	background-repeat: no-repeat;
+	background-size: 1.5em;
+	background-position:left;
 }
 	
-#language_menu {
-	display:none;	
+.lan_men_items a div{
+    float:left;
 }
 
 #language_menu ul li {
@@ -501,12 +543,12 @@ html, body {
 	width:100%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
-	font-size: 1.1em;
+	font-size: .9em;
 	position: relative;
 	display: block;
-	line-height: 2.4em;
+	line-height: 1em;
+	margin-top:1em;
 	cursor: pointer;
-	
 }
 
 #large-menu ul li a{
@@ -523,7 +565,6 @@ html, body {
 	position: relative;
 	padding-left:.5em;
 	margin-top: 0;
-	text-align: left;
 	display: block;
 	text-decoration: none;
 	white-space: nowrap;
@@ -540,15 +581,13 @@ html, body {
 	margin-left: 1.2em;
     margin-top: .75em;
     
-}	
-	
-
+}
 
 /*############################################### currency menu ###########################################*/
 .cur_callout {
-	position: absolute;
+	position: fixed;
 	width: auto;
-	margin-left: -12.9em;
+	/*margin-left: -9.4em;*/
 	background: #4d4d4d;
     margin-top: 3em;
     border-radius: 6px;
@@ -587,6 +626,7 @@ html, body {
 }
 
 .currency_menu_divs{
+	float:right;
 	display:inline-block;
 	height:21em;
 }	

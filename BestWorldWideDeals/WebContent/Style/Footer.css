@@ -22,13 +22,9 @@ html, body {
     border: 2px solid #f49000; 
     font-family: Arial, Helvetica, sans-serif;
     font-weight:bold;
-    color: #f49000;
+    background: #f49000;
+    color: #262626;
     border-radius: 40px;
-}
-
-#news_div div:hover{
-	background: #f49000;
-	color: #262626;
 }
 
 #news_div div:hover>div{
@@ -265,7 +261,7 @@ html, body {
 	height: 100%;
 	padding-right:.4em;
 	line-height: 25px;
-	width: 4.8em;
+	width: 4em;
 	vertical-align: middle;
 	border:none;
 	border-radius:0;
@@ -278,7 +274,7 @@ html, body {
 }
 
 #news_email{
-	width: 14.4em;
+	width: 15.4em;
 	height: 100%;
 	margin-top: 0;
 	float:left;
@@ -420,7 +416,7 @@ html, body {
 	height: 100%;
 	padding-right:.3em;
 	line-height: 30px;
-	width: 5em;
+	width: 4.4em;
 	vertical-align: middle;
 	border:none;
 	border-radius:0;
@@ -432,7 +428,7 @@ html, body {
 }
 
 #news_email {
-	width: 14.2em;
+	width: 15.2em;
 	height: 100%;
 	margin-top: 0;
 	float:left;

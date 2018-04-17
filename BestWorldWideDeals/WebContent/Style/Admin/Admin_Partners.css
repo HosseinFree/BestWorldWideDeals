@@ -6,6 +6,10 @@ html, body {
 	background:#dedede;
 }
 
+textarea:focus, input:focus,select:focus{
+    outline: none;
+    
+}
 
 #partners_main_content{
    width: 100%;
@@ -468,13 +472,26 @@ html, body {
    margin-bottom:4em;
 }
 
-.ui-accordion table{
-	width:100%;
-	margin:0;
-	padding:0;
+*{
+   word-wrap:break-word;	
 }
 
-.ui-accordion table td{
+.partners_list_tables_url{
+	width: 100%;
+	margin:0;
+	padding:0;
+	table-layout:fixed;
+}
+
+.partners_list_tables{
+  width: 100%;
+  table-layout:fixed;
+  margin:0;
+  padding:0;
+}
+
+.partners_list_table_url_lastrow{
+	padding-bottom:1em;
 } 
 
 
@@ -490,12 +507,12 @@ html, body {
 
 .ui-accordion table td{
     height: 3em;
-    
 }
 
 .partners_list_table_url_lastrow{
 	border-bottom: 1px solid #cccccc;
 }
+
 
 .partners_list_tables_url tr:last-child > td{
 	border-bottom: none;
@@ -509,6 +526,7 @@ html, body {
 .partners_list_tab_lables{
     color:#f49000;
     font-weight:bold;	
+    padding-bottom:4em;
 }
 
 .ui-accordion .ui-accordion-header{

@@ -63,7 +63,8 @@
 			                <option value="none">Choose a language</option>
 					        <option value="EN">EN - English</option> <option value="FR">FR - French</option> <option value="ES">ES - Spanish</option>
 						    <option value="ZH">ZH - Chinese</option> <option value="IT">IT - Italian</option> <option value="RU">RU - Russian</option>
-						    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option>
+						    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option><option value="KO">KO - South Korean</option>
+						    <option value="PT">PT - Portuguese</option>
 			   	         </select>
 				         <div id="partners_langs_div"></div>
 				    </div>
@@ -80,7 +81,7 @@
 									    <option value="INR">Indian Rupee - INR</option> <option value="JPY">Japanese Yen - JPY</option> <option value="KRW">South Korean Won - KRW</option> 
 									    <option value="MYR">Malaysian Ringgit - MYR</option><option value="PEN">Peruvian Sol - PEN</option><option value="PHP">Philippine Piso - PHP</option>
 									    <option value="SGD">Singapore Dollar - SGD</option><option value="THB">Thai Baht - THB</option><option value="TWD">New Taiwan Dollar - TWD</option>
-									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXM">Mexican Peso - MXN</option>
+									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXN">Mexican Peso - MXN</option>
 									    <option value="CZK">Czech koruna - CZK</option><option value="SEK">Swedish krona - SEK</option><option value="DKK">Danish Krone-DKK</option>
 									    <option value="TRY">Turkish Lira - TRY</option>
 								     </select>
@@ -182,7 +183,8 @@
 						                <option value="none">Choose a language</option>
 								        <option value="EN">EN - English</option><option value="FR">FR - French</option><option value="ES">ES - Spanish</option>
 									    <option value="ZH">ZH - Chinese</option><option value="IT">IT - Italian</option><option value="RU">RU - Russian</option>
-									    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option>
+									    <option value="DE">DE - German</option><option value="JP">JP - Japanese</option><option value="KO">KO - South Korean</option>
+						                <option value="PT">PT - Portuguese</option>
 						   	         </select>
 							         <div id="partners_edit_langs_div"></div>
 							    </div>
@@ -198,7 +200,7 @@
 									    <option value="INR">Indian Rupee - INR</option> <option value="JPY">Japanese Yen - JPY</option> <option value="KRW">South Korean Won - KRW</option> 
 									    <option value="MYR">Malaysian Ringgit - MYR</option><option value="PEN">Peruvian Sol - PEN</option><option value="PHP">Philippine Piso - PHP</option>
 									    <option value="SGD">Singapore Dollar - SGD</option><option value="THB">Thai Baht - THB</option><option value="TWD">New Taiwan Dollar - TWD</option>
-									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXM">Mexican Peso - MXN</option>
+									    <option value="UYU">Uruguayan peso - UYU</option><option value="VND">Vietnamese Dong - VND</option><option value="MXN">Mexican Peso - MXN</option>
 									    <option value="CZK">Czech koruna - CZK</option><option value="SEK">Swedish krona - SEK</option><option value="DKK">Danish Krone-DKK</option>
 									    <option value="TRY">Turkish Lira - TRY</option>
 						   	         </select>

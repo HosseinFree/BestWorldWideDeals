@@ -22,7 +22,7 @@ document.onclick = function(elem) {
 		$("#lan_arrow").addClass('arrow_down').removeClass('arrow_up');
 		is_language_menu_open = false;
 		$("#language_menu").hide();
-	 }    
+    }    
 	
 	if (!(  elem.target.id == "currency_menu" || elem.target.id == "currency_div" || elem.target.id == "cur_arrow") ){
 		$("#cur_arrow").addClass('arrow_down').removeClass('arrow_up');
@@ -30,6 +30,25 @@ document.onclick = function(elem) {
 		$("#currency_menu").hide();
 	 }    
 };
+
+
+$(window).resize(function() {
+	
+	if(is_language_menu_open){
+		is_language_menu_open = false;
+		$("#language_menu").hide();
+	}
+	
+	if(is_account_menu_open){
+		is_account_menu_open = false;
+		$("#account_menu").hide();
+	}
+	
+	if(is_currency_menu_open){
+		is_currency_menu_open = false;
+		$("#currency_menu").hide();
+	}
+});
 
 function toggle_acc_menu(){
 	if ( is_account_menu_open == false) {
@@ -45,6 +64,11 @@ function toggle_acc_menu(){
 }
 
 function toggle_lan_menu(){
+	var lang_item = document.querySelector( "#language_div" );
+	var lang_rect = lang_item.getBoundingClientRect();
+	var x = $("#language_menu").css("width");
+	var y = lang_rect.left + lang_rect.width/2;
+	$("#language_menu").css("left",Math.round(y) - Math.round(parseInt(x)/2));
 	if ( is_language_menu_open == false) {
 		$("#language_menu").show();
 		$("#lan_arrow").addClass('arrow_up').removeClass('arrow_down');
@@ -57,6 +81,13 @@ function toggle_lan_menu(){
 }
 
 function toggle_cur_menu(){
+	
+	var cur_item = document.querySelector( "#currency_div" );
+	var cur_rect = cur_item.getBoundingClientRect();
+	var x = $("#currency_menu").css("width");
+	var y = cur_rect.left + cur_rect.width/2;
+	$("#currency_menu").css("left",Math.round(y) - Math.round(parseInt(x)/2));
+	
 	if ( !is_currency_menu_open) {
 		$("#currency_menu").show();
 		$("#cur_arrow").addClass('arrow_up').removeClass('arrow_down');
