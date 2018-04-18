@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions"%>  
 <fmt:requestEncoding value="UTF-8" />
 <html>
 <c:set var="loc" value="en_GB"/>
@@ -9,15 +10,12 @@
 <c:if test="${!(empty param.locale)}">
    <c:set var="loc" value="${param.locale}"/>
 </c:if>
-<c:if test="${!(empty param.lan_val)}">
-   <c:set var="lan_val" value="${param.lan_val}"/>
-</c:if>
 
 <fmt:setLocale value="${loc}"/>
 
 <head>
 <fmt:bundle basename="app">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels.css">
 <link rel="stylesheet" type="text/css" href="./Style/Index_hotels/Index_hotels_datepicker.css">
@@ -31,7 +29,7 @@
     <div id="header_div">
        <jsp:include page="./Jsp/Header.jsp"/>
     </div>   
-    <input type="hidden" value="${lan_val}" id="language_val"/>
+    <input type="hidden" value="${loc}" id="language_val"/>
    	<div id="content_wrapper">
    	   <input type="hidden" id="hidd_content"/>
    	   
@@ -411,7 +409,7 @@
       <!-- ##################################### End Top content ############################################### -->	 
 	</div> <!-- End of content wrapper -->
 	<jsp:include page="./Jsp/Footer.jsp"></jsp:include>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZKLZfJQ-iqPcr4Cu5SWBSHRtaSWbS8pM&&language=${lan_val}&libraries=places" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZKLZfJQ-iqPcr4Cu5SWBSHRtaSWbS8pM&&language=${fn:split(loc,'_')[0]}&region=${fn:split(loc,'_')[1]}&libraries=places" async defer></script>
 </body>
 </fmt:bundle>
 

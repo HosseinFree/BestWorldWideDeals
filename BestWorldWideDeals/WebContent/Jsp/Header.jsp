@@ -45,52 +45,42 @@
 										
 					<c:url value="${pageContext.request.requestURL}" var="frURL">
 					   <c:param name="locale" value="fr_FR"/>
-					   <c:param name="lan_val" value="Français"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="enURL">
 					   <c:param name="locale" value="en_GB"/>
-					   <c:param name="lan_val" value="English"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="esURL">
 					   <c:param name="locale" value="es_ES"/>
-					   <c:param name="lan_val" value="Español"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="zhURL">
 					   <c:param name="locale" value="zh_CH"/>
-					   <c:param name="lan_val" value="简体中文"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="itURL">
 					   <c:param name="locale" value="it_IT"/>
-					   <c:param name="lan_val" value="Italiano"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="deURL">
 					   <c:param name="locale" value="de_DE"/>
-					   <c:param name="lan_val" value="Deutsch"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="jpURL">
 					   <c:param name="locale" value="ja_JP"/>
-					   <c:param name="lan_val" value="日本語"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="ruURL">
 					   <c:param name="locale" value="ru_RU"/>
-					   <c:param name="lan_val" value="Pусский"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="koURL">
 					   <c:param name="locale" value="ko_KR"/>
-					   <c:param name="lan_val" value="한국어"/>
 					</c:url>
 					
 					<c:url value="${pageContext.request.requestURL}" var="ptURL">
 					   <c:param name="locale" value="pt_PT"/>
-					   <c:param name="lan_val" value="Português"/>
 					</c:url>
 					
 					<li class="large_menu_items">
@@ -108,11 +98,7 @@
 					
 									    			    
 					<li class="large_menu_items">
-					   <c:set var="lan_val" value="English"/>
-					   <c:if test="${!(empty param.lan_val)}">
-					       <c:set var="lan_val" value="${param.lan_val}"/>
-					   </c:if>
-					   <div id="language_div"  onclick="toggle_lan_menu();">${lan_val}</div>
+					   <div id="language_div"  onclick="toggle_lan_menu();"><fmt:message key="language"/></div>
 					   <i id="lan_arrow" class="arrow_down"></i>
 				    </li>
 					

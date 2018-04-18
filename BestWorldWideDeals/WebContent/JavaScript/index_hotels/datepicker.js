@@ -1,6 +1,6 @@
-languages = {'EN': {'monthNames':['January','February','March','April','May','June','July','August','September','October','November','December'],
+languages = {'en_GB': {'monthNames':['January','February','March','April','May','June','July','August','September','October','November','December'],
 					'daysAbbreviation':['Mo','Tu','We','Th','Fr','Sa','Su']},
-			  'FR': {'monthNames':['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+			  'fr_FR': {'monthNames':['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
 						'daysAbbreviation':['De','Lu','Ma','Me','Je','Ve','Sa']},
 			}
 
@@ -201,7 +201,7 @@ function getMonts(startDate,months) {
     for (var i = 0; i < months; i++) {
         var date = new Date(startDate.getFullYear(), startDate.getMonth() + i, 1);
         var month = {
-            name: languages['EN']['monthNames'][date.getMonth()],
+            name: languages['en_GB']['monthNames'][date.getMonth()],
             year: date.getFullYear(),
             inter_name:languages[lan_val]['monthNames'][date.getMonth()],
             weeks: [],

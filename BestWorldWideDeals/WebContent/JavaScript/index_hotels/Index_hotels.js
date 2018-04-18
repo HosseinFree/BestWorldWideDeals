@@ -1,3 +1,10 @@
+function get_local(){
+	return $("#language_val").val().split("_")[0];
+} 
+
+function get_region(){
+	return $("#language_val").val().split("_")[1];
+} 
 
 
 
