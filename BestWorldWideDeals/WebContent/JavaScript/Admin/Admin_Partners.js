@@ -318,13 +318,13 @@ function add_url(action_type,value){
 							$('#partners_add_urls').hide();
 					 }
 					 
-					 if(num_urls == 4){
+					 if(num_urls == 7){
 						   $('#partner_form_addurl_button').hide();
 					 }
 				 };      
 			})(last_added_url));
 			
-			if(num_urls == 5){
+			if(num_urls == 8){
 				   $('#partner_form_addurl_button').hide();
 				   return;	
 			}
@@ -382,13 +382,13 @@ function add_url(action_type,value){
 						$('#partners_edit_urls').hide();
 				 }
 				 
-				 if(edit_num_urls == 4){
+				 if(edit_num_urls == 7){
 					   $('#partner_form_editaddurl_button').show();
 				 }
 			 };      
 		})(edit_last_added_url));
 		
-		if(edit_num_urls == 5){
+		if(edit_num_urls == 8){
 			   $('#partner_form_editaddurl_button').hide();
 			   return;	
 		}
@@ -408,7 +408,7 @@ function remove_url(){
 	
 	num_urls -= 1;
 	
-	if (num_urls == 4){
+	if (num_urls == 7){
 		$('#partner_form_addurl_button').show();
 	}
 	

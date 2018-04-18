@@ -121,23 +121,23 @@ function toggle_small_menu(){
 function toggle_small_acc_menu(){
 	if ( is_small_account_menu_open == false) {
 		if ( is_small_currency_menu_open == true) {
-			$("#small_currency_menu").animate({height: 'toggle'},"slow","linear");
+			$("#small_currency_menu").animate({height: 'toggle'},"fast","linear");
 			$("#small_cur_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 	        is_small_currency_menu_open = false;
 	     }
 	    if ( is_small_language_menu_open == true) {
-			$("#small_language_menu").animate({height: 'toggle'},"slow","linear");
+			$("#small_language_menu").animate({height: 'toggle'},"fast","linear");
 			$("#small_lan_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 	        is_small_language_menu_open = false;
         }
-		$("#small_account_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_account_menu").animate({height: 'toggle'},"fast","linear");
 		$("#small_acc_arrow").addClass('small_menu_arrow_up').removeClass('arrow_down');
 		is_small_account_menu_open = true;
 	}else{
 		is_small_account_menu_open = false;
 		$("#small_acc_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 		
-		$("#small_account_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_account_menu").animate({height: 'toggle'},"fast","linear");
     }
 }
 
@@ -145,23 +145,23 @@ function toggle_small_cur_menu(){
 	
 	if ( is_small_currency_menu_open == false) {
 		if ( is_small_account_menu_open == true) {
-				$("#small_account_menu").animate({height: 'toggle'},"slow","linear");
+				$("#small_account_menu").animate({height: 'toggle'},"fast","linear");
 				$("#small_acc_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 		        is_small_account_menu_open = false;
 		}
 		if ( is_small_language_menu_open == true) {
-			$("#small_language_menu").animate({height: 'toggle'},"slow","linear");
+			$("#small_language_menu").animate({height: 'toggle'},"fast","linear");
 			$("#small_lan_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 	        is_small_language_menu_open = false;
 	    }
 	
-		$("#small_currency_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_currency_menu").animate({height: 'toggle'},"fast","linear");
 		$("#small_cur_arrow").addClass('small_menu_arrow_up').removeClass('arrow_down');
 		is_small_currency_menu_open = true;
 	}else{
 		is_small_currency_menu_open = false;
 		$("#small_cur_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
-		$("#small_currency_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_currency_menu").animate({height: 'toggle'},"fast","linear");
     }
 }
 
@@ -169,38 +169,42 @@ function toggle_small_lan_menu(){
 	
 	if ( is_small_language_menu_open == false) {
 		if ( is_small_account_menu_open == true) {
-				$("#small_account_menu").animate({height: 'toggle'},"slow","linear");
+				$("#small_account_menu").animate({height: 'toggle'},"fast","linear");
 				$("#small_acc_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 		        is_small_account_menu_open = false;
 		}
 		if ( is_small_currency_menu_open == true) {
-			$("#small_currency_menu").animate({height: 'toggle'},"slow","linear");
+			$("#small_currency_menu").animate({height: 'toggle'},"fast","linear");
 			$("#small_cur_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
 	        is_small_currency_menu_open = false;
 	     }
 	    
-		$("#small_language_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_language_menu").animate({height: 'toggle'},"fast","linear");
 		$("#small_lan_arrow").addClass('small_menu_arrow_up').removeClass('arrow_down');
 		is_small_language_menu_open = true;
 	}else{
 		is_small_language_menu_open = false;
 		$("#small_lan_arrow").addClass('arrow_down').removeClass('small_menu_arrow_up');
-		$("#small_language_menu").animate({height: 'toggle'},"slow","linear");
+		$("#small_language_menu").animate({height: 'toggle'},"fast","linear");
     }
 }
 
 
 function set_value(element,value){
-	if (element === 'currency')
+	
+	if (element === 'currency'){
 		currency_val = value;
-	   
-	if (element === 'language')
+		$('#'+element+'_div').text(value);
+		$('#small_'+element+'_val').text(value);
+	    toggle_small_cur_menu()
+	}
+	
+	if (element === 'language'){
 		language_val = value;
+	    toggle_small_lan_menu()
+	}
 	
-	toggle_small_cur_menu()
 	
-	$('#'+element+'_div').text(value);
-	$('#small_'+element+'_val').text(value);
 }
 
 function show_partners_msg(msg_content){
