@@ -247,7 +247,7 @@
 		    </li>
 		    <li class="small_menu_items">
 		      <div id="small_language_div" onclick="toggle_small_lan_menu()">
-		         <span id="small_language_val">${lan_val}</span><i id="small_lan_arrow" class="arrow_down"></i>
+		         <span id="small_language_val"><fmt:message key="language"/></span><i id="small_lan_arrow" class="arrow_down"></i>
 		      </div>
 		      <div id="small_language_menu" class="small_menu_divs">
 		           <ul>
