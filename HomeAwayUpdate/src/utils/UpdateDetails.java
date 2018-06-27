@@ -423,8 +423,8 @@ public class UpdateDetails {
 		ps.setString(7,(String) addr.get("subdivision"));
 		ps.setString(8,(String) addr.get("country"));
 		ps.setString(9,(String) addr.get("postalCode"));
-		ps.setDouble(10,(Double) latlang.get("latitude"));
-		ps.setDouble(11,(Double) latlang.get("longitude"));
+		ps.setDouble(10,(Double) latlang.get("longitude"));
+		ps.setDouble(11,(Double) latlang.get("latitude"));
 		ps.executeUpdate();
 		ps.close();
 	}
