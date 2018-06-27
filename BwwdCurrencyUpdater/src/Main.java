@@ -18,13 +18,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		String access_key = "27f276e4a26be678fd08ce3aa4c45294";
-		DB db = new DB(DB.DB_base_url+"bwwd_system","root","551360");
-		DB report_db = new DB(DB.DB_base_url+"bwwd_app_stats","root","551360");
+		DB db = new DB(DB.DB_base_url+"bwwd_system","main_root","551360bwwd");
+		DB report_db = new DB(DB.DB_base_url+"bwwd_app_stats","main_root","551360bwwd");
 		String remove_existing_rates = "DELETE FROM currencies_rates WHERE true;";
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		Date new_date = new Date();
 		String log_file_url = df.format(new_date)+"-file.log";
-		Logger logger = new Logger("./"+log_file_url);
+		Logger logger = new Logger("/home/ubuntu/bwwd/BwwdCurrencyUpdater/"+log_file_url);
 		logger.log_report("STARTING to update currencies_rate table.",true);
         try {
             Connection con = db.getConnection();
@@ -36,7 +36,7 @@ public class Main {
 			http_con.setDoInput(true); // indicates server will return a response
 			
 			int responseCode = http_con.getResponseCode();
-			System.out.println("POST Response Code :: " + responseCode);
+			//System.out.println("POST Response Code :: " + responseCode);
 			
 			if (responseCode == HttpURLConnection.HTTP_OK) { //success
 				
@@ -51,7 +51,7 @@ public class Main {
 				in.close();
 
 				// print result
-				System.out.println(response.toString());
+				//System.out.println(response.toString());
 				JSONParser parser = new JSONParser();
 				Object obj = parser.parse(response.toString());
 		        JSONObject response_json = (JSONObject) obj;
@@ -128,7 +128,7 @@ public class Main {
 			if(name.equals("EUR")){
 				continue;
 			}
-			System.out.println(name);
+			//System.out.println(name);
 			double rate = (Double) rates.get(name);
 			ps.setString(1,name);
 			ps.setDouble(2,rate);
