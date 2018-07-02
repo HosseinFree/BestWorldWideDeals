@@ -110,6 +110,7 @@ public class UpdateToken implements UpdateAuthToken{
 	 * 
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	public int isTokenValid() throws Exception {
 		
 		Connection con = UpdateToken.getConnection();
@@ -298,6 +299,7 @@ public class UpdateToken implements UpdateAuthToken{
 	 * @throws MalformedURLException 
 	 * 
 	 */
+	@SuppressWarnings("unchecked")
 	private JSONObject getTokenFromSource() throws Exception{
 		
 		URL url = new URL(this.getUrl("Token"));
