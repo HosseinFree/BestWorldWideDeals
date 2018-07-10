@@ -39,6 +39,7 @@
    	   <input type="hidden" id="from_date_inp"/>
    	   <input type="hidden" id="to_date_inp"/>
    	   <input type="hidden" id="num_of_rooms"/>
+   	   <input type="hidden" id="num_of_nights"/>
    	   
    	   
    	   <!-- ###############################  Start Top content ################################################## -->
@@ -46,7 +47,7 @@
    	       <div id="search_div">
 		       <div id="search_tab">
 					<div id="search_label" class="search_labels"><fmt:message key="travelingTo"/></div>
-						<input type="text" id="search_input" class="search_text_inputs" onkeyup="initAutocomplete()" placeholder="<fmt:message key="travelSearchInput"/>"/>
+						<input type="text" id="search_input" class="search_text_inputs" onkeyup="initAutocomplete(event)" placeholder="<fmt:message key="travelSearchInput"/>"/>
 					      <div id="date_room_wrapper">
 						       <div class="date_room_divs date_divs">  
 						           <div id="check_in_label" class="search_labels">

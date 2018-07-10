@@ -1,6 +1,6 @@
 var is_suggestion_window_open = false;
 var sugesstion_items;
-var suggestion_item_num = 0;
+var suggestion_item_num = -1;
 var prev_val="";
 var is_enter_key_pressed = false;
 var placeDetails, autocomplete;
@@ -20,20 +20,25 @@ document.addEventListener('click',function(elem) {
 
 
 $("#search_input").keydown(function(e) {
-		
-    	if( is_suggestion_window_open ){
+	    
+	    if( is_suggestion_window_open ){
     		if  (e.keyCode == 38 || e.keyCode == 40){
     		    e.preventDefault();
     		    $("#"+suggestion_item_num).toggleClass("active_suggest_item");
     			$("#"+suggestion_item_num).toggleClass("deactive_item");
 	    	    if (e.keyCode == 40){ // key down 
-	    			if( suggestion_item_num == 5 ){
+	    	    	if(suggestion_item_num < 0 ){
+	    	    		suggestion_item_num = 1;
+	    	    	}else if( suggestion_item_num == 5 ){
 	    				suggestion_item_num = 1;
 	    			}else{
 	    				suggestion_item_num += 1
 	       			}
-	    		}else if (e.keyCode == 38){
-	    			if( suggestion_item_num == 1 ){
+	    		}else if (e.keyCode == 38){ //key up
+	    			
+	    			if(suggestion_item_num < 0 ){
+	    	    		suggestion_item_num = 5;
+	    	    	}else if( suggestion_item_num == 1 ){
 	    				suggestion_item_num = 5;
 	    			}else{
 	    				if( suggestion_item_num > 1 ){
@@ -50,6 +55,7 @@ $("#search_input").keydown(function(e) {
     		if  (e.keyCode == 13){
     			if(suggestion_item_num>0){
     			  $("#search_input").val(suggestion_items[parseInt(suggestion_item_num-1)].name);
+    			  unpdate_dest_coord(suggestion_items[parseInt(suggestion_item_num-1)].place_id);
     			  remove_sugg_div();
     			  $("#search_input").blur();
     			  is_enter_key_pressed = true;
@@ -64,8 +70,14 @@ $("#search_input").keydown(function(e) {
  * 
  * 
  */
-function initAutocomplete(){
+function initAutocomplete(e){
 	val = $("#search_input").val();
+	
+	if  ( !( e.keyCode == 38 || e.keyCode == 40 ) ){
+	   $("#"+suggestion_item_num).toggleClass("active_suggest_item");
+	   $("#"+suggestion_item_num).toggleClass("deactive_item");
+	   suggestion_item_num = -1;
+	}
 	
 	if ( prev_val === val ) {
 	    return;	
@@ -150,7 +162,7 @@ function render_suggestions(predictions){
 	$(".search_suggest_div").html($(".search_suggest_div").html()+str);
 	$(".suggestion_items").click(function(){
 		$("#search_input").val(suggestion_items[parseInt(this.id-1)].name);
-		unpdate_dest_coord(suggestion_items[parseInt(this.id-1)].place_id)
+		unpdate_dest_coord(suggestion_items[parseInt(this.id-1)].place_id);
 		remove_sugg_div();
 	});
 	

@@ -57,8 +57,8 @@ $(document ).ready(function() {
     $("#from_date_val").html(start_value);
     $("#small_from_date_val").html(start_value);
     
-    $("#from_date_inp").attr("value",global_startDate.getDate()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getFullYear()); 
-	$("#to_date_inp").attr("value",global_endDate.getDate()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getFullYear()); 
+    $("#from_date_inp").attr("value",global_startDate.getFullYear()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getDate()); 
+	$("#to_date_inp").attr("value",global_endDate.getFullYear()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getDate()); 
 });
 
 $(window).resize(function() {
@@ -397,6 +397,7 @@ function setDate(element,date){
         document.getElementById("to_date_val").innerHTML = end_value;
         document.getElementById("small_to_date_val").innerHTML = end_value;
         $("#num_nights").html(get_num_days(global_startDate,global_endDate)+" Nights Stay");
+        $("#num_of_nights").val(get_num_days(global_startDate,global_endDate));
     }else{
     	value = date.getDate() + ' ' + languages[lan_val]['monthNames'][date.getMonth()] + ' ' + date.getFullYear();
         global_endDate = date;
@@ -431,10 +432,11 @@ function setDate(element,date){
         document.getElementById("from_date_val").innerHTML = start_value;
         document.getElementById("small_from_date_val").innerHTML = start_value;
         $("#num_nights").html(get_num_days(global_startDate,global_endDate)+" Nights Stay");
+        $("#num_of_nights").val(get_num_days(global_startDate,global_endDate));
       }
     
-    $("#from_date_inp").attr("value",global_startDate.getDate()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getFullYear()); 
-	$("#to_date_inp").attr("value",global_endDate.getDate()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getFullYear()); 
+    $("#from_date_inp").attr("value",global_startDate.getFullYear()+'-'+(global_startDate.getMonth()+1)+'-'+global_startDate.getDate()); 
+	$("#to_date_inp").attr("value",global_endDate.getFullYear()+'-'+(global_endDate.getMonth()+1)+'-'+global_endDate.getDate()); 
 	
 }
 

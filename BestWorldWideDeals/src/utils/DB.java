@@ -15,7 +15,7 @@ public class DB{
 		 this.db = DB;
 	 }
 
-	 public Connection getConnection() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, NamingException{
+	 public Connection getConnection() throws Exception{
 		 Connection con;
 		 Context ctx = new InitialContext();
 		 Context envContext = (Context) ctx.lookup("java:comp/env");
